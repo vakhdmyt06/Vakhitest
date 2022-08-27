@@ -1,6 +1,6 @@
 #ifndef PRINT_H
 #define PRINT_H
-#include "header/player.h"
+#include "deps.h"
 
 class game;
 class print

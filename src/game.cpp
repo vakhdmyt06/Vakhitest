@@ -20,7 +20,8 @@ void game::render(){
     win.display();
 }
 
-
-
+void game::rendr(sf::Drawable &objdraw){
+    win.draw(objdraw);
+}
 
 

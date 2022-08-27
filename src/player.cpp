@@ -14,6 +14,8 @@ void player::main(int startX, int startY){
     input();
     xpos+=velocity;
     plbox();
+    gam.rendr(box);
+    game().win.draw(velprint.textname);
 }
 
 void player::plbox(){

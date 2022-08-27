@@ -1,9 +1,9 @@
-#include "header/deps.h"
+#include "deps.h"
 
 #ifndef GAME_H
 #define GAME_H
-#include "header/player.h"
-#include "header/print.h"
+#include "player.h"
+#include "print.h"
 class game{
 private:
     public:
@@ -14,6 +14,7 @@ private:
         bool devel=1;
 //        int ys=0;
         void slep(int milliseconds, int mode=0);
+        void rendr(sf::Drawable &objdraw);
     private:
         void menutable();
         void debugm(); void titlem(); void editorsplash();

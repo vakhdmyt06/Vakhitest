@@ -31,8 +31,6 @@ void game::debugm(){
 void game::titlem(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
     chara.main(100, win.getSize().y/3+win.getSize().y/2);
-    win.draw(chara.box);
-    win.draw(chara.velprint.textname);
 }
 void game::editorsplash(){
     debugtitle.make("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 30);

@@ -3,7 +3,7 @@
 std::string winame="VAKHITEST5";
 #include "game.h"
 
-game gam;
+extern game gam;
 int main() {
 cout << " - CREATING " << winame << endl;
 	gam.win.create(sf::VideoMode(800,600),winame, sf::Style::Default);
