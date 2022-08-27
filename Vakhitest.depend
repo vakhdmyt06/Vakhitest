@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1660934010 source:/home/dima/CODING/Vakhitest/game.cpp
+	"game.h"
+
+1660943084 /home/dima/CODING/Vakhitest/game.h
+	"../deps.h"
+
+1660914056 /home/dima/CODING/Vakhitest/deps.h
+	<SFML/Graphics.hpp>
+	<string>
+	<iostream>
+
+1660908136 /home/dima/CODING/Vakhitest/text.h
+	"deps.h"
+	"game.h"
+
+1660934299 source:/home/dima/CODING/Vakhitest/main.cpp
+	"deps.h"
+	"game.h"
+
+1660908132 source:/home/dima/CODING/Vakhitest/text.cpp
+	"text.h"
+
+1661625782 source:/home/dima/CODING/Vakhitest/src/game.cpp
+	"game.h"
+
+1660940230 /home/dima/CODING/Vakhitest/menu.h
+	"../game.h"
+
+1661018581 source:/home/dima/CODING/Vakhitest/src/main.cpp
+	"deps.h"
+	"game.h"
+
+1661614708 source:/home/dima/CODING/Vakhitest/src/menu.cpp
+	"game.h"
+
+1661612119 source:/home/dima/CODING/Vakhitest/src/print.cpp
+	"game.h"
+
+1660986582 /home/dima/CODING/Vakhitest/src/print.h
+
+1660994144 /home/dima/CODING/Vakhitest/src/deps.h
+	<SFML/Graphics.hpp>
+	<string>
+	<iostream>
+	<memory>
+
+1661627013 /home/dima/CODING/Vakhitest/src/game.h
+	"deps.h"
+	"player.h"
+	"player.h"
+
+1660981308 /home/dima/CODING/Vakhitest/src/menu.h
+	"deps.h"
+	"print.h"
+
+1661612475 source:/home/dima/CODING/Vakhitest/src/button.cpp
+	"game.h"
+
+1661023260 source:/home/dima/CODING/Vakhitest/src/editor.cpp
+	"game.h"
+
+1661614741 source:/home/dima/CODING/Vakhitest/src/player.cpp
+	"game.h"
+
+1661627005 /home/dima/CODING/Vakhitest/src/player.h
+	"deps.h"
+
