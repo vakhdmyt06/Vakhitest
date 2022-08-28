@@ -10,24 +10,35 @@ player::~player()
     //dtor
 
 }
-void player::main(int startX, int startY){
+void player::main(int startx, int starty){
+    startX=startx, startY=starty;
     input();
     xpos+=velocity;
     plbox();
-    gam.rendr(box);
-    game().win.draw(velprint.textname);
+    #ifdef devel
+    cout<<startX<<", "<<startY<<endl;
+    #endif
 }
 
 void player::plbox(){
-
-    box.setFillColor(sf::Color::Red); box.setSize(sf::Vector2f(40, 60)); box.setPosition(sf::Vector2f(startX+xpos, startY));
+    box.setFillColor(sf::Color::Red); box.setSize(sf::Vector2f(40, 60));
+    box.setPosition(sf::Vector2f(startX+xpos, startY));
+    if(xpos>300) box.setPosition(sf::Vector2f(400, startY));
+    else box.setPosition(sf::Vector2f(startX+xpos, startY));
 }
 
 void player::input(){
     //hEEhEE
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){if(velocity>=0.f&&velocity<8.f) {velocity+=0.3f;} else velocity=8.f;} else if(velocity>0.f) velocity=0.f;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){if(velocity<=0.f&&velocity>-8.f) {velocity-=0.3f;} else velocity=-8.f;} else if(velocity<0.f) velocity=0.f;
-    velprint.make(std::to_string(velocity),6, 30, 0);
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){if(velocity>=0.f&&velocity<8.f) {velocity+=0.3f;} else velocity=8.f;} else if(velocity>0.f) velocity=0.f;
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){if(velocity<=0.f&&velocity>-8.f) {velocity-=0.3f;} else velocity=-8.f;} else if(velocity<0.f) velocity=0.f;
+    } else {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){if(velocity>=0.f&&velocity<5.f) {velocity+=0.3f;} else velocity=5.f;} else if(velocity>0.f) velocity=0.f;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){if(velocity<=0.f&&velocity>-5.f) {velocity-=0.3f;} else velocity=-5.f;} else if(velocity<0.f) velocity=0.f;
+    }
+    #ifdef devel
+    velprint.make("v:"+std::to_string(velocity)+" x:"+std::to_string(startX+xpos),3, 6, 0,20);
+    #endif
 }
 
 void player::slep(int milliseconds, int mode){

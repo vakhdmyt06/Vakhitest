@@ -9,15 +9,15 @@ class player
     public:
         player();
         virtual ~player();
-        void main(int startX, int startY);
+        void main(int startx, int starty);
         float velocity=0.f;
-        int startX=100, startY=700;
+        int startX, startY;
         sf::RectangleShape box;
         print velprint;
+        float xpos=0;
     private:
         void plbox();
         void input();
         void slep(int milliseconds, int mode=0); int timevar=0;
-        float xpos=0;
 };
 #endif // PLAYER_H

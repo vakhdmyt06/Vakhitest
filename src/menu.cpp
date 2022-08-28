@@ -30,13 +30,16 @@ void game::debugm(){
 
 void game::titlem(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
-    chara.main(100, win.getSize().y/3+win.getSize().y/2);
+    chara.main(100, 450);
+    win.draw(chara.box); win.draw(chara.velprint.textname);
+    testbox.main(200, 400, 10, 10, sf::Color::White,chara.xpos);
+    win.draw(testbox.rectbox);
 }
 void game::editorsplash(){
     debugtitle.make("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 30);
     win.draw(debugtitle.textname);
     editorshout.make("DEVEL EDITOR", win.getSize().x/2, win.getSize().y/2, 3, 100);
     win.draw(editorshout.textname);
-    buttonmk(win.getSize().x/2, win.getSize().y/2+200, "Press This Button to Continue", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 40, MENU,3);
+    buttonmk(win.getSize().x/2, win.getSize().y/2+200, " ", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 40, MENU,3);
 
 }

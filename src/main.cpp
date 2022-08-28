@@ -1,9 +1,9 @@
-#include "deps.h"
+#include "header/deps.h"
 
 std::string winame="VAKHITEST5";
-#include "game.h"
+#include "header/game.h"
 
-extern game gam;
+game gam;
 int main() {
 cout << " - CREATING " << winame << endl;
 	gam.win.create(sf::VideoMode(800,600),winame, sf::Style::Default);

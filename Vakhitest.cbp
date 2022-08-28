@@ -48,16 +48,16 @@
 		</Compiler>
 		<Unit filename="cb.bmp" />
 		<Unit filename="src/button.cpp" />
-		<Unit filename="src/deps.h" />
 		<Unit filename="src/editor.cpp" />
 		<Unit filename="src/game.cpp" />
-		<Unit filename="src/game.h" />
+		<Unit filename="src/header/deps.h" />
+		<Unit filename="src/header/game.h" />
+		<Unit filename="src/header/player.h" />
+		<Unit filename="src/header/print.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/menu.cpp" />
-		<Unit filename="src/menu.h" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/print.cpp" />
-		<Unit filename="src/print.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

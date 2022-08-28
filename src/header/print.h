@@ -8,7 +8,6 @@ class print
     public:
         print();
         virtual ~print();
-//        game* gam;
         string text;
         int x, y, MODE, charsize;
         sf::Text textname;
