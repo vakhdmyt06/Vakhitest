@@ -56,7 +56,7 @@ private:
     public: //collision
         void collision(int posxa, int posya, int widtha, int heighta, int collbehav=0);
         void detector(int collbehav);
-        void collbehaviour(int collbehav, int side);
+        void collbehaviour(int collbehav);
         int charx, chary, charw, charh;
         int posx, posy, width, height;
         sf::RectangleShape top, bottom ,left, right;
@@ -66,7 +66,8 @@ private:
         int plblockwalk=0;
     private:
         void drawlines();
-        int detection();
+        int detectionout();
+        int detectionin();
         void drawcharaline();
         float speeds[2]{5.f, 8.f}, speed;
 

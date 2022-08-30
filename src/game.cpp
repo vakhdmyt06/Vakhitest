@@ -2,7 +2,6 @@
 
 game::game()
 {
-    cout << "gaming" << endl;
 }
 game::~game(){
 

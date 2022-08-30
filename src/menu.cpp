@@ -30,10 +30,11 @@ void game::debugm(){
 
 void game::titlem(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
+    make_box(300, 400, 380, 300, sf::Color::Cyan, 2);
     make_box(200, 400, 30, 40, sf::Color::Yellow, 1);
     make_box(300, 400, 50, 40, sf::Color::Green, 1);
     make_box(400, 400, 10, 5, sf::Color::Blue, 1);
-    make_box(400, 400, 180, 100, sf::Color::Cyan, 2;
+
     spawn_player(100, win.getSize().y/2);
 }
 void game::editorsplash(){

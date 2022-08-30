@@ -6,40 +6,38 @@ void game::collision(int posxa, int posya, int widtha, int heighta, int collbeha
 }
 
 void game::detector(int collbehav){
-    charx=playerx, chary=playery-plypos, charw=plbox.getGlobalBounds().width, charh=plbox.getGlobalBounds().height;
+    charx=plbox.getPosition().x, chary=playery-plypos, charw=plbox.getGlobalBounds().width, charh=plbox.getGlobalBounds().height;
     drawcharaline();
-    collbehaviour(collbehav, detection());
+    collbehaviour(collbehav);
 }
 
-void game::collbehaviour(int collbehav, int side){
+void game::collbehaviour(int collbehav){
     switch(collbehav)
     {
     case 1: //OUTSIDE WALL
-        if(side==1) { plblockwalk=1; }
-        if(side==2) { plblockwalk=2; }
-        if(side==3) { plblockwalk=3; }
-        if(side==4) { plblockwalk=4; }
+        if(detectionout()==1) { plblockwalk=1; }
+        if(detectionout()==2) { plblockwalk=2; }
+        if(detectionout()==3) { plblockwalk=3; }
+        if(detectionout()==4) { plblockwalk=4; }
         break;
-    }
-    case 1: //INSIDE WALL
-        if(side==1) { plblockwalk=2; }
-        if(side==2) { plblockwalk=2; }
-        if(side==3) { plblockwalk=4; }
-        if(side==4) { plblockwalk=3; }
+    case 2: //INSIDE WALL
+        if(detectionin()==1) { plblockwalk=1; }
+        if(detectionin()==2) { plblockwalk=2; }
+        if(detectionin()==3) { plblockwalk=3; }
+        if(detectionin()==4) { plblockwalk=4; }
         break;
     }
 }
 
 void game::drawcharaline(){
-    chartop.setFillColor(sf::Color::White);
-    chartop.setSize(sf::Vector2f(charw, 8));
-    charbottom.setSize(sf::Vector2f(charw, 8));
-    charleft.setSize(sf::Vector2f(8, charh));
-    charright.setSize(sf::Vector2f(8, charh));
-    chartop.setPosition(sf::Vector2f(charx,chary-charh/2+8)); chartop.setOrigin(sf::Vector2f(0, -charh/2+8));
-    charbottom.setPosition(sf::Vector2f(charx,chary+charh/2-8)); charbottom.setOrigin(sf::Vector2f(0, -charh/2));
-    charleft.setPosition(sf::Vector2f(charx-charw/2+8,chary)); charleft.setOrigin(sf::Vector2f(-charw/2+8, 0));
-    charright.setPosition(sf::Vector2f(charx+charw/2-8,chary)); charright.setOrigin(sf::Vector2f(-charw/2, 0));
+    chartop.setSize(sf::Vector2f(charw+16, 8));
+    charbottom.setSize(sf::Vector2f(charw+16, 8));
+    charleft.setSize(sf::Vector2f(8, charh+16));
+    charright.setSize(sf::Vector2f(8, charh+16));
+    chartop.setPosition(sf::Vector2f(charx,chary-charh/2)); chartop.setOrigin(sf::Vector2f(8, -charh/2+8));
+    charbottom.setPosition(sf::Vector2f(charx,chary+charh/2)); charbottom.setOrigin(sf::Vector2f(8, -charh/2));
+    charleft.setPosition(sf::Vector2f(charx-charw/2,chary)); charleft.setOrigin(sf::Vector2f(-charw/2+8, 8));
+    charright.setPosition(sf::Vector2f(charx+charw/2,chary)); charright.setOrigin(sf::Vector2f(-charw/2, 8));
     chtop=chartop.getGlobalBounds(); chbott=charbottom.getGlobalBounds(); chleft=charleft.getGlobalBounds(); chrigh=charright.getGlobalBounds();
 #ifdef devel
     chartop.setFillColor(sf::Color::White); charbottom.setFillColor(sf::Color::White); charleft.setFillColor(sf::Color::White); charright.setFillColor(sf::Color::White);
@@ -48,11 +46,17 @@ void game::drawcharaline(){
 #endif
 }
 
-int game::detection(){
+int game::detectionout(){
     if(bottcol.intersects(chtop)) return 2; //CHARACTER TOP
     if(topcol.intersects(chbott)) return 1; //CHARACTER BOTTOM
-    if(leftcol.intersects(chrigh)) return 3; //CHARACTER LEFT
-    if(righcol.intersects(chleft)) return 4; //CHARACTER RIGHT
+    if(leftcol.intersects(chrigh)) return 3; //CHARACTER RIGHT
+    if(righcol.intersects(chleft)) return 4; //CHARACTER LEFT
+}
+int game::detectionin(){
+    if(topcol.intersects(chtop)) return 2; //CHARACTER TOP
+    if(leftcol.intersects(chleft)) return 4; //CHARACTER LEFT
+    if(bottcol.intersects(chbott)) return 1; //CHARACTER BOTTOM
+    if(righcol.intersects(chrigh)) return 3; //CHARACTER RIGHT
 }
 
 void game::drawlines(){
@@ -68,6 +72,6 @@ void game::drawlines(){
 #ifdef devel
     //top.setFillColor(sf::Color::White); bottom.setFillColor(sf::Color::White); left.setFillColor(sf::Color::White); right.setFillColor(sf::Color::White);
 //    cout<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
-    //win.draw(top); win.draw(bottom); win.draw(left); win.draw(right);
+    win.draw(top); win.draw(bottom); win.draw(left); win.draw(right);
 #endif
 }
