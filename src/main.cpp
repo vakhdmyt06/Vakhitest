@@ -1,9 +1,11 @@
-#include "header/deps.h"
 
-std::string winame="VAKHITEST5";
 #include "header/game.h"
-
 game gam;
+#ifndef VAKHITEST
+#define VAKHITEST
+#include "header/deps.h"
+std::string winame="VAKHITEST5";
+
 int main() {
 cout << " - CREATING " << winame << endl;
 	gam.win.create(sf::VideoMode(800,600),winame, sf::Style::Default);
@@ -21,3 +23,4 @@ cout << " - CREATING " << winame << endl;
 	cout << " - Exiting " << winame << endl;
     return 0;
 }
+#endif

@@ -17,6 +17,8 @@
 					<Add option="-g" />
 					<Add option="-std=c++20" />
 					<Add directory="include" />
+					<Add directory="src/include" />
+					<Add directory="src/header" />
 				</Compiler>
 				<Linker>
 					<Add option="-m64" />
@@ -34,6 +36,8 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include" />
+					<Add directory="src/include" />
+					<Add directory="src/header" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -47,12 +51,13 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="cb.bmp" />
+		<Unit filename="src/box.cpp" />
 		<Unit filename="src/button.cpp" />
-		<Unit filename="src/editor.cpp" />
+		<Unit filename="src/collision.cpp" />
 		<Unit filename="src/game.cpp" />
+		<Unit filename="src/header/box.h" />
 		<Unit filename="src/header/deps.h" />
 		<Unit filename="src/header/game.h" />
-		<Unit filename="src/header/player.h" />
 		<Unit filename="src/header/print.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/menu.cpp" />

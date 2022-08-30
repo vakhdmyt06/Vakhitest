@@ -1,7 +1,11 @@
 #include "header/game.h"
 
-game::game(){
+game::game()
+{
     cout << "gaming" << endl;
+}
+game::~game(){
+
 }
 
 void game::slep(int milliseconds, int mode){
@@ -19,9 +23,4 @@ void game::render(){
     update();
     win.display();
 }
-
-void game::rendr(sf::Drawable &objdraw){
-    win.draw(objdraw);
-}
-
 
