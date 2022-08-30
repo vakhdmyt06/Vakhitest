@@ -65,17 +65,21 @@ private:
         sf::FloatRect chtop, chbott, chleft, chrigh;
         int plblockwalk=0;
     private:
+        int hitbsz=6;
         void drawlines();
         int detectionout();
         int detectionin();
         void drawcharaline();
-        float speeds[2]{5.f, 8.f}, speed;
+        float speeds[2]{3.3f, 8.f}, speed;
 
     public: //box
         void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior);
         sf::RectangleShape rectbox;
-    private:
+        sf::Sprite sprbox;
+        void make_sprite(int posX, int posY, int width, int height, int behavior);
         float boxposx, boxposy;
+    private:
+    sf::Texture image_test;
 };
 #endif // GAME_H
 

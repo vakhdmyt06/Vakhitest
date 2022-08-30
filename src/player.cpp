@@ -28,19 +28,19 @@ void game::input(){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::LShift))speed=speeds[1]; else speed=speeds[0];
     if(plblockwalk!=3&&sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        if(xvel>=0.f&&xvel<8.f) {xvel+=0.2f;} else xvel=speed;
+        if(xvel>=0.f&&xvel<speed) {xvel+=0.2f;} else xvel=speed;
     } else if(xvel>0.f) xvel=0.f;
     if(plblockwalk!=4&&sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        if(xvel<=0.f&&xvel>-8.f) {xvel-=0.2f;} else xvel=-speed;
+        if(xvel<=0.f&&xvel>-speed) {xvel-=0.2f;} else xvel=-speed;
     } else if(xvel<0.f) xvel=0.f;
     if(plblockwalk!=1&&sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-        if(yvel>=0.f&&yvel<8.f) {yvel+=0.2f;} else yvel=speed;
+        if(yvel>=0.f&&yvel<speed) {yvel+=0.2f;} else yvel=speed;
     } else if(yvel>0.f) yvel=0.f;
     if(plblockwalk!=2&&sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
-        if(yvel<=0.f&&yvel>-8.f) {yvel-=0.2f;} else yvel=-speed;
+        if(yvel<=0.f&&yvel>-speed) {yvel-=0.2f;} else yvel=-speed;
     } else if(yvel<0.f) yvel=0.f;
     plblockwalk=0;
 }

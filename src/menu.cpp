@@ -34,7 +34,8 @@ void game::titlem(){
     make_box(200, 400, 30, 40, sf::Color::Yellow, 1);
     make_box(300, 400, 50, 40, sf::Color::Green, 1);
     make_box(400, 400, 10, 5, sf::Color::Blue, 1);
-
+    make_sprite(400, 100, 1, 1, 1);
+    make_sprite(400, 100, 10, 10, 1);
     spawn_player(100, win.getSize().y/2);
 }
 void game::editorsplash(){

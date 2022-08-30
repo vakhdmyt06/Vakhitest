@@ -30,16 +30,16 @@ void game::collbehaviour(int collbehav){
 }
 
 void game::drawcharaline(){
-    chartop.setSize(sf::Vector2f(charw+16, 8));
-    charbottom.setSize(sf::Vector2f(charw+16, 8));
-    charleft.setSize(sf::Vector2f(8, charh+16));
-    charright.setSize(sf::Vector2f(8, charh+16));
-    chartop.setPosition(sf::Vector2f(charx,chary-charh/2)); chartop.setOrigin(sf::Vector2f(8, -charh/2+8));
-    charbottom.setPosition(sf::Vector2f(charx,chary+charh/2)); charbottom.setOrigin(sf::Vector2f(8, -charh/2));
-    charleft.setPosition(sf::Vector2f(charx-charw/2,chary)); charleft.setOrigin(sf::Vector2f(-charw/2+8, 8));
-    charright.setPosition(sf::Vector2f(charx+charw/2,chary)); charright.setOrigin(sf::Vector2f(-charw/2, 8));
+    chartop.setSize(sf::Vector2f(charw+hitbsz*2, hitbsz));
+    charbottom.setSize(sf::Vector2f(charw+hitbsz*2, hitbsz));
+    charleft.setSize(sf::Vector2f(hitbsz, charh+hitbsz*2));
+    charright.setSize(sf::Vector2f(hitbsz, charh+hitbsz*2));
+    chartop.setPosition(sf::Vector2f(charx,chary-charh/2)); chartop.setOrigin(sf::Vector2f(hitbsz, -charh/2+hitbsz));
+    charbottom.setPosition(sf::Vector2f(charx,chary+charh/2)); charbottom.setOrigin(sf::Vector2f(hitbsz, -charh/2));
+    charleft.setPosition(sf::Vector2f(charx-charw/2,chary)); charleft.setOrigin(sf::Vector2f(-charw/2+hitbsz, hitbsz));
+    charright.setPosition(sf::Vector2f(charx+charw/2,chary)); charright.setOrigin(sf::Vector2f(-charw/2, hitbsz));
     chtop=chartop.getGlobalBounds(); chbott=charbottom.getGlobalBounds(); chleft=charleft.getGlobalBounds(); chrigh=charright.getGlobalBounds();
-#ifdef devel
+#ifdef hitbox
     chartop.setFillColor(sf::Color::White); charbottom.setFillColor(sf::Color::White); charleft.setFillColor(sf::Color::White); charright.setFillColor(sf::Color::White);
 //    cout<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
     win.draw(chartop); win.draw(charbottom); win.draw(charleft); win.draw(charright);
@@ -60,16 +60,16 @@ int game::detectionin(){
 }
 
 void game::drawlines(){
-    top.setSize(sf::Vector2f(width+16, 8));
-    bottom.setSize(sf::Vector2f(width+16, 8));
-    left.setSize(sf::Vector2f(8, height+16));
-    right.setSize(sf::Vector2f(8, height+16));
-    top.setPosition(sf::Vector2f(posx,posy-height/2)); top.setOrigin(sf::Vector2f(width/2+8, +8));
-    bottom.setPosition(sf::Vector2f(posx,posy+height/2)); bottom.setOrigin(sf::Vector2f(width/2+8, 0));
-    left.setPosition(sf::Vector2f(posx-width/2,posy)); left.setOrigin(sf::Vector2f(+8, height/2+8));
-    right.setPosition(sf::Vector2f(posx+width/2,posy)); right.setOrigin(sf::Vector2f(0, height/2+8));
+    top.setSize(sf::Vector2f(width+hitbsz*2, hitbsz));
+    bottom.setSize(sf::Vector2f(width+hitbsz*2, hitbsz));
+    left.setSize(sf::Vector2f(hitbsz, height+hitbsz*2));
+    right.setSize(sf::Vector2f(hitbsz, height+hitbsz*2));
+    top.setPosition(sf::Vector2f(posx,posy-height/2)); top.setOrigin(sf::Vector2f(width/2+hitbsz, +hitbsz));
+    bottom.setPosition(sf::Vector2f(posx,posy+height/2)); bottom.setOrigin(sf::Vector2f(width/2+hitbsz, 0));
+    left.setPosition(sf::Vector2f(posx-width/2,posy)); left.setOrigin(sf::Vector2f(+hitbsz, height/2+hitbsz));
+    right.setPosition(sf::Vector2f(posx+width/2,posy)); right.setOrigin(sf::Vector2f(0, height/2+hitbsz));
     topcol=top.getGlobalBounds(); bottcol=bottom.getGlobalBounds(); leftcol=left.getGlobalBounds(); righcol=right.getGlobalBounds();
-#ifdef devel
+#ifdef hitbox
     //top.setFillColor(sf::Color::White); bottom.setFillColor(sf::Color::White); left.setFillColor(sf::Color::White); right.setFillColor(sf::Color::White);
 //    cout<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
     win.draw(top); win.draw(bottom); win.draw(left); win.draw(right);

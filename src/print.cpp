@@ -3,7 +3,7 @@
 
 print::print()
 {
-    if(!textfont.loadFromFile("norm.ttf")) cout << "Error: FONT FILE INVALID" << endl;
+    if(!textfont.loadFromFile("assets/font/norm.ttf")) cout << "Error: FONT FILE INVALID" << endl;
 }
 
 print::~print()
