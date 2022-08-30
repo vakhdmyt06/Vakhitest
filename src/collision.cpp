@@ -41,7 +41,7 @@ void game::drawcharaline(){
     chtop=chartop.getGlobalBounds(); chbott=charbottom.getGlobalBounds(); chleft=charleft.getGlobalBounds(); chrigh=charright.getGlobalBounds();
 #ifdef hitbox
     chartop.setFillColor(sf::Color::White); charbottom.setFillColor(sf::Color::White); charleft.setFillColor(sf::Color::White); charright.setFillColor(sf::Color::White);
-//    cout<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
+//    cout<<"CHARA: "<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
     win.draw(chartop); win.draw(charbottom); win.draw(charleft); win.draw(charright);
 #endif
 }
@@ -71,7 +71,7 @@ void game::drawlines(){
     topcol=top.getGlobalBounds(); bottcol=bottom.getGlobalBounds(); leftcol=left.getGlobalBounds(); righcol=right.getGlobalBounds();
 #ifdef hitbox
     //top.setFillColor(sf::Color::White); bottom.setFillColor(sf::Color::White); left.setFillColor(sf::Color::White); right.setFillColor(sf::Color::White);
-//    cout<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
+//    cout<<"OBJ:   "<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
     win.draw(top); win.draw(bottom); win.draw(left); win.draw(right);
 #endif
 }

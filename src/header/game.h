@@ -79,7 +79,16 @@ private:
         void make_sprite(int posX, int posY, int width, int height, int behavior);
         float boxposx, boxposy;
     private:
-    sf::Texture image_test;
+        sf::Texture image_test;
+
+    public:
+        void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0);
+        void make_tile(int xtile, int yrow, string filename="error", int behaviur=0);
+        sf::RectangleShape tilecol;
+        sf::RectangleShape tilespr;
+    private:
+        const unsigned int gridsize=32;
+        sf::Texture sprtiletex;
 };
 #endif // GAME_H
 

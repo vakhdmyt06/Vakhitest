@@ -1,7 +1,5 @@
 #include "header/game.h"
 void game::make_box(int posX, int posY, int width, int height, sf::Color col, int behavior){
-    if(plxpos<300.f)boxposx=0.f; else boxposx=plxpos-300.f;
-    boxposy=plypos;
 //    #ifdef devel
 //    cout<<plbox.getPosition().x<<"  "<<boxposx<<endl;
 //    #endif // devel

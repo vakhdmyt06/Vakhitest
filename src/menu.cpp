@@ -23,6 +23,8 @@ void game::menutable(){
 
 void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
+    if(plxpos<300.f)boxposx=0.f; else boxposx=plxpos-300.f;
+    boxposy=plypos;
 
 }
 
@@ -46,7 +48,7 @@ void game::menu_test(){
     make_box(400, 400, 10, 5, sf::Color::Blue, 1);
     make_sprite(400, 100, 1, 1, 1);
     make_sprite(400, 100, 10, 10, 1);
-    spawn_player(100, win.getSize().y/2);
+    spawn_player(110, win.getSize().y/2);
 }/*
 void game::editorsplash(){
     debugtitle.make("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 30);
@@ -59,5 +61,6 @@ void game::editorsplash(){
 */
 
 void game::menu_testgrid(){
-
+    for(int i=0; i!=20; i++) {for(int j=6; j!=10;j++) make_tile(i,j, sf::Color::Green, 1);}
+    spawn_player(100, win.getSize().y/2);
 }

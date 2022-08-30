@@ -18,9 +18,9 @@ void game::spawn_player(int startx, int starty){
 
 void game::plboxdef(){
     plbox.setFillColor(sf::Color::Red); plbox.setSize(sf::Vector2f(40, 60));
-    plbox.setPosition(sf::Vector2f(startX+plxpos, startY));
-    if(plxpos>300) plbox.setPosition(sf::Vector2f(400, startY));
-    else plbox.setPosition(sf::Vector2f(startX+plxpos, startY));
+    plbox.setPosition(sf::Vector2f(startX+plxpos,  win.getSize().y/2));
+    if(plxpos>win.getSize().x/2-startX) plbox.setPosition(sf::Vector2f(win.getSize().x/2, win.getSize().y/2)); // add y up down scroll  and x left right scroll  STOPS if needed
+    else plbox.setPosition(sf::Vector2f(startX+plxpos,  win.getSize().y/2));
 }
 
 void game::input(){
