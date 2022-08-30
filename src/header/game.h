@@ -68,6 +68,7 @@ private:
         void drawlines();
         int detection();
         void drawcharaline();
+        float speeds[2]{5.f, 8.f}, speed;
 
     public: //box
         void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior);
