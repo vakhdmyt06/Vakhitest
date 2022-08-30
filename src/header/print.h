@@ -12,7 +12,14 @@ class print
         int x, y, MODE, charsize;
         sf::Text textname;
         sf::Font textfont;
-        void make(string text, int x, int y, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
+        int make(string text, int x, int y, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
+        int menuum=0;
     private:
+        int ys=0;
+        int print_debug();
+        sf::String string_debug;
+        void slep(int milliseconds, int mode=0);
+        int timevar=0;
+
 };
 #endif // PRINT_H

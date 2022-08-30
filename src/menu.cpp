@@ -3,11 +3,15 @@
 void game::menutable(){
     switch(menum){
     case 1:
-        titlem();
+        menu_test();
+        menu_global();
         break;
     case 0:
-        debugm();
+         menu_debug();
         break;
+    case 4:
+        menu_testgrid();
+        menu_global();
     /*case 2:
         editorsplash();
         break;
@@ -17,19 +21,25 @@ void game::menutable(){
     }
 }
 
-void game::debugm(){
+void game::menu_global(){
+    buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
+
+}
+
+void game::menu_debug(){
     /*print("Hello World", 1, 0, 1, 40, sf::Color::White);
     print("y: "+std::to_string(y), 5, 30, 0, 30, sf::Color::White);
     mkbutton(win.getSize().x/2, win.getSize().y/2+100, "PRESS", sf::Color::Red, 90, 50, 40, sf::Color::Green, sf::Color::Blue, 40, 2);*/
     debugtitle.make("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 30);
+    debuginfo.make("INFO\nuse UP | DOWN Arrows to change map\nPress Enter to enter map\nPress Backspace or -DEBUG to go back", win.getSize().x/2, 140, 2, 33);
+    win.draw(debuginfo.textname);
     win.draw(debugtitle.textname);
-    debg.make("Hello World", 10, 0, 0, 40);
+    menum=debg.make("Hello World", 0, 0, 1, 40);
     win.draw(debg.textname);
-    buttonmk(win.getSize().x/2, win.getSize().y/2, "PRESS START", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 10, MENU,1,sf::Keyboard::Enter);
+    buttonmk(win.getSize().x/2, win.getSize().y-200, "PRESS START", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 10, NOTHING,1,sf::Keyboard::Enter);
 }
 
-void game::titlem(){
-    buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
+void game::menu_test(){
     make_box(300, 400, 380, 300, sf::Color::Cyan, 2);
     make_box(200, 400, 30, 40, sf::Color::Yellow, 1);
     make_box(300, 400, 50, 40, sf::Color::Green, 1);
@@ -37,12 +47,17 @@ void game::titlem(){
     make_sprite(400, 100, 1, 1, 1);
     make_sprite(400, 100, 10, 10, 1);
     spawn_player(100, win.getSize().y/2);
-}
+}/*
 void game::editorsplash(){
     debugtitle.make("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 30);
     win.draw(debugtitle.textname);
     editorshout.make("DEVEL EDITOR", win.getSize().x/2, win.getSize().y/2, 3, 100);
     win.draw(editorshout.textname);
     buttonmk(win.getSize().x/2, win.getSize().y/2+200, " ", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 40, MENU,3);
+
+}
+*/
+
+void game::menu_testgrid(){
 
 }

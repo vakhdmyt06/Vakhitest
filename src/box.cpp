@@ -19,10 +19,10 @@ void game::make_sprite(int posX, int posY, int width, int height, int behavior){
 //    cout<<plbox.getPosition().x<<"  "<<boxposx<<endl;
 //    #endif // devel
 //    rectbox.setFillColor(col);
-    image_test.loadFromFile("assets/sprite/test.png");
+    image_test.loadFromFile("assets/sprite/testbound.png");
     sprbox.setScale(sf::Vector2f(width, height));
-    sprbox.setOrigin(sf::Vector2f(width/2, height/2));
-    sprbox.setPosition(sf::Vector2f(posX-boxposx, posY-boxposy));
+    sprbox.setPosition(sf::Vector2f(posX-boxposx-8*width, posY-boxposy-8*height));
     sprbox.setTexture(image_test);
     win.draw(sprbox);
+    collision(posX-boxposx, posY-boxposy, sprbox.getGlobalBounds().width, sprbox.getGlobalBounds().height, 1);
 }

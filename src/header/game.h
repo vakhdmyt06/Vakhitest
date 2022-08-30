@@ -11,7 +11,6 @@ private:
         void init(); void update(); void render();
         sf::RenderWindow win;
         sf::Event eve;
-//        int ys=0;
         void slep(int milliseconds, int mode=0);
 
     private: //menu system
@@ -24,8 +23,9 @@ private:
         int menum=menunum;
         //collision chara;
     private: //menu defines
-        void debugm(); void titlem(); void editorsplash();
+        void menu_debug(); void menu_test(); void editorsplash(); void menu_global(); void menu_testgrid();
         print debugtitle;
+        print debuginfo;
         print debg;
         print test;
         print editorshout;
