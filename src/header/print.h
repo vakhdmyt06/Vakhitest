@@ -15,7 +15,7 @@ class print
         int make(string text, int x, int y, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
         int menuum=0;
     private:
-        int ys=4;
+        int ys=1;
         int print_debug();
         sf::String string_debug;
         void slep(int milliseconds, int mode=0);

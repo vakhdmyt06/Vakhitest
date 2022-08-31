@@ -48,11 +48,13 @@ private:
         sf::RectangleShape plbox;
         print velprint;
         float plxpos=0, plypos=0;
+        void room_init();
     private:
         void plboxdef();
         void input();
         float playerx, playery;
-
+        const float speeds[2]{3.3f, 8.f};
+/*
     public: //collision
         void collision(int posxa, int posya, int widtha, int heighta, int collbehav=0);
         void detector(int collbehav);
@@ -61,17 +63,13 @@ private:
         int posx, posy, width, height;
         sf::RectangleShape top, bottom ,left, right;
         sf::RectangleShape chartop, charbottom, charleft, charright;
-        sf::FloatRect topcol, bottcol, leftcol, righcol;
-        sf::FloatRect chtop, chbott, chleft, chrigh;
-        int plblockwalk=0;
     private:
-        int hitbsz=6;
+        int hitbsz=3;
         void drawlines();
         int detectionout();
         int detectionin();
         void drawcharaline();
-        float speeds[2]{3.3f, 8.f}, speed;
-
+*/
     public: //box
         void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior);
         sf::RectangleShape rectbox;
@@ -87,8 +85,19 @@ private:
         sf::RectangleShape tilecol;
         sf::RectangleShape tilespr;
     private:
-        const unsigned int gridsize=32;
+        const unsigned int gridsize=36;
         sf::Texture sprtiletex;
+
+    public:
+        void collision(int posx, int posy, int width, int height, int collbehav=0);
+        void detector(int collbehav);
+        sf::RectangleShape hitboxobj,testass;
+        float charx, chary, charw, charh;
+        const int hitboxsize = 2;
+        std::vector<sf::RectangleShape> hbobjs;
+        void playercollision();
+        sf::FloatRect nextPos, hbplayer, hbobj;
+        int menuinit;
 };
 #endif // GAME_H
 

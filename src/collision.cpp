@@ -38,7 +38,6 @@ void game::drawcharaline(){
     charbottom.setPosition(sf::Vector2f(charx,chary+charh/2)); charbottom.setOrigin(sf::Vector2f(hitbsz, -charh/2));
     charleft.setPosition(sf::Vector2f(charx-charw/2,chary)); charleft.setOrigin(sf::Vector2f(-charw/2+hitbsz, hitbsz));
     charright.setPosition(sf::Vector2f(charx+charw/2,chary)); charright.setOrigin(sf::Vector2f(-charw/2, hitbsz));
-    chtop=chartop.getGlobalBounds(); chbott=charbottom.getGlobalBounds(); chleft=charleft.getGlobalBounds(); chrigh=charright.getGlobalBounds();
 #ifdef hitbox
     chartop.setFillColor(sf::Color::White); charbottom.setFillColor(sf::Color::White); charleft.setFillColor(sf::Color::White); charright.setFillColor(sf::Color::White);
 //    cout<<"CHARA: "<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;
@@ -47,16 +46,16 @@ void game::drawcharaline(){
 }
 
 int game::detectionout(){
-    if(bottcol.intersects(chtop)) return 2; //CHARACTER TOP
-    if(topcol.intersects(chbott)) return 1; //CHARACTER BOTTOM
-    if(leftcol.intersects(chrigh)) return 3; //CHARACTER RIGHT
-    if(righcol.intersects(chleft)) return 4; //CHARACTER LEFT
+    if(top.getGlobalBounds().intersects(charbottom.getGlobalBounds())) return 1; //CHARACTER BOTTOM
+    if(bottom.getGlobalBounds().intersects(chartop.getGlobalBounds())) return 2; //CHARACTER TOP
+    if(left.getGlobalBounds().intersects(charright.getGlobalBounds())) return 3; //CHARACTER RIGHT
+    if(right.getGlobalBounds().intersects(charleft.getGlobalBounds())) return 4; //CHARACTER LEFT
 }
 int game::detectionin(){
-    if(topcol.intersects(chtop)) return 2; //CHARACTER TOP
-    if(leftcol.intersects(chleft)) return 4; //CHARACTER LEFT
-    if(bottcol.intersects(chbott)) return 1; //CHARACTER BOTTOM
-    if(righcol.intersects(chrigh)) return 3; //CHARACTER RIGHT
+    if(bottom.getGlobalBounds().intersects(charbottom.getGlobalBounds())) return 1; //CHARACTER BOTTOM
+    if(top.getGlobalBounds().intersects(chartop.getGlobalBounds())) return 2; //CHARACTER TOP
+    if(right.getGlobalBounds().intersects(charright.getGlobalBounds())) return 3; //CHARACTER RIGHT
+    if(left.getGlobalBounds().intersects((charleft.getGlobalBounds()))) return 4; //CHARACTER LEFT
 }
 
 void game::drawlines(){
@@ -68,7 +67,6 @@ void game::drawlines(){
     bottom.setPosition(sf::Vector2f(posx,posy+height/2)); bottom.setOrigin(sf::Vector2f(width/2+hitbsz, 0));
     left.setPosition(sf::Vector2f(posx-width/2,posy)); left.setOrigin(sf::Vector2f(+hitbsz, height/2+hitbsz));
     right.setPosition(sf::Vector2f(posx+width/2,posy)); right.setOrigin(sf::Vector2f(0, height/2+hitbsz));
-    topcol=top.getGlobalBounds(); bottcol=bottom.getGlobalBounds(); leftcol=left.getGlobalBounds(); righcol=right.getGlobalBounds();
 #ifdef hitbox
     //top.setFillColor(sf::Color::White); bottom.setFillColor(sf::Color::White); left.setFillColor(sf::Color::White); right.setFillColor(sf::Color::White);
 //    cout<<"OBJ:   "<<posx<<" "<<posy<<" "<<width<<" "<<height<<endl;

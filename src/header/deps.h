@@ -4,4 +4,4 @@
 #include <memory>
 using std::cout, std::string, std::endl;
 #define devel
-#define hitbox
+//#define show_hitbox

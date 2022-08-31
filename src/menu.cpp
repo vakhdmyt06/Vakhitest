@@ -3,28 +3,33 @@
 void game::menutable(){
     switch(menum){
     case 1:
-        menu_test();
         menu_global();
+        menu_test();
         break;
     case 0:
          menu_debug();
         break;
     case 4:
-        menu_testgrid();
         menu_global();
-    /*case 2:
-        editorsplash();
+        menu_testgrid();
+    case 2:
+        menu_global();
+//        editorsplash();
         break;
     case 3:
-        editor();
-        break;*/
+        menu_global();
+//        editor();
+        break;
     }
+    if(menuinit!=menum) room_init();
+    menuinit=menum;
 }
 
 void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
-    if(plxpos<300.f)boxposx=0.f; else boxposx=plxpos-300.f;
+    if(plxpos<400.f)boxposx=0.f; else boxposx=plxpos-400.f;
     boxposy=plypos;
+    hbobjs.clear();
 
 }
 
@@ -33,7 +38,7 @@ void game::menu_debug(){
     print("y: "+std::to_string(y), 5, 30, 0, 30, sf::Color::White);
     mkbutton(win.getSize().x/2, win.getSize().y/2+100, "PRESS", sf::Color::Red, 90, 50, 40, sf::Color::Green, sf::Color::Blue, 40, 2);*/
     debugtitle.make("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 30);
-    debuginfo.make("INFO\nuse UP | DOWN Arrows to change map\nPress Enter to enter map\nPress Backspace or -DEBUG to go back", win.getSize().x/2, 140, 2, 33);
+    debuginfo.make("INFO\nPress UP | DOWN Arrows to change map\nPress Enter to enter map\nPress Backspace or -DEBUG to go back", win.getSize().x/2, 130, 2, 33);
     win.draw(debuginfo.textname);
     win.draw(debugtitle.textname);
     menum=debg.make("Hello World", 0, 0, 1, 40);
@@ -61,6 +66,6 @@ void game::editorsplash(){
 */
 
 void game::menu_testgrid(){
-    for(int i=0; i!=20; i++) {for(int j=6; j!=10;j++) make_tile(i,j, sf::Color::Green, 1);}
+    for(int i=6; i!=25; i++) for(int j=10; j!=20;j++) make_tile(i,j, sf::Color::Green, 1);
     spawn_player(100, win.getSize().y/2);
 }
