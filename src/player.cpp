@@ -2,6 +2,7 @@
 void game::room_init(){
     cout<<"Room: "<<menum<<endl;
     plxpos=startX, plypos=startY;
+    load_textures();
     plboxdef();
 }
 
@@ -14,13 +15,16 @@ void game::spawn_player(int startx, int starty){
     input();
     playercollision();
     win.draw(plbox);
+    plname.make("Gubed", plbox.getPosition().x+plbox.getGlobalBounds().width/2, plbox.getPosition().y-plbox.getGlobalBounds().height/2+10, 2,25);
+    win.draw(plname.textname);
 //    #ifdef devel
 //    cout<<startX<<", "<<startY<<endl;
 //    #endif
 }
 
 void game::plboxdef(){
-    plbox.setFillColor(sf::Color::Red); plbox.setSize(sf::Vector2f(40, 60));
+//    plbox.setSize(sf::Vector2f(32,32));
+    plbox.setTexture(tex_player); plbox.setScale(sf::Vector2f(1.5,1.5));
     plbox.setPosition(sf::Vector2f(plxpos,  win.getSize().y/2));
     if(plxpos>win.getSize().x/2) plbox.setPosition(sf::Vector2f(win.getSize().x/2, win.getSize().y/2)); // add y up down scroll  and x left right scroll  STOPS if needed
     else plbox.setPosition(sf::Vector2f(plxpos,  win.getSize().y/2));

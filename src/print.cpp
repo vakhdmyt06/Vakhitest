@@ -55,16 +55,16 @@ int print::print_debug(){
         string_debug=std::to_string(ys)+" Test Object/ Collision";
         break;
     case 2:
-        string_debug=std::to_string(ys)+" Reserved";
+        ys=4;
         break;
     case 3:
-        string_debug=std::to_string(ys)+" Reserved";
+        ys=1;
         break;
     case 4:
         string_debug=std::to_string(ys)+" Test Grid";
         break;
     default:
-        string_debug="INVALID MAP";
+        string_debug=std::to_string(ys)+" INVALID MAP";
     }
     return 0;
 }

@@ -45,7 +45,7 @@ private:
         void spawn_player(int startx, int starty);
         float xvel=0.f, yvel=0.f;
         int startX, startY;
-        sf::RectangleShape plbox;
+        sf::Sprite plbox;
         print velprint;
         float plxpos=0, plypos=0;
         void room_init();
@@ -53,7 +53,8 @@ private:
         void plboxdef();
         void input();
         float playerx, playery;
-        const float speeds[2]{3.3f, 8.f};
+        const float speeds[2]{3.5f, 8.f};
+        print plname;
 /*
     public: //collision
         void collision(int posxa, int posya, int widtha, int heighta, int collbehav=0);
@@ -81,12 +82,12 @@ private:
 
     public:
         void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0);
-        void make_tile(int xtile, int yrow, string filename="error", int behaviur=0);
+        void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0);
         sf::RectangleShape tilecol;
         sf::RectangleShape tilespr;
     private:
-        const unsigned int gridsize=36;
-        sf::Texture sprtiletex;
+        const unsigned int gridsize=32;
+//        const unsigned int gridscale=2;
 
     public:
         void collision(int posx, int posy, int width, int height, int collbehav=0);
@@ -94,10 +95,16 @@ private:
         sf::RectangleShape hitboxobj,testass;
         float charx, chary, charw, charh;
         const int hitboxsize = 2;
-        std::vector<sf::RectangleShape> hbobjs;
+        std::vector<sf::RectangleShape> hbobjs, hbwalls;
         void playercollision();
         sf::FloatRect nextPos, hbplayer, hbobj;
         int menuinit;
+
+    private: //TEXTURES
+        void load_textures();
+        sf::Texture tex_grass;
+        sf::Texture tex_test;
+        sf::Texture tex_player;
 };
 #endif // GAME_H
 

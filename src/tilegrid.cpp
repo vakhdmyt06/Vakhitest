@@ -2,16 +2,21 @@
 
 void game::make_tile(int xtile, int yrow, sf::Color col, int behaviur){
     tilecol.setSize(sf::Vector2f(gridsize, gridsize));
+//    tilecol.setScale(sf::Vector2f(gridscale, gridscale));
     tilecol.setFillColor(col);
     tilecol.setPosition(sf::Vector2f(xtile*gridsize-boxposx, yrow*gridsize-boxposy));
     collision(xtile*gridsize-boxposx, yrow*gridsize-boxposy, gridsize, gridsize, behaviur);
     win.draw(tilecol);
 }
 
-void game::make_tile(int xtile, int yrow, string filename, int behaviur){
-    if(!sprtiletex.loadFromFile("assets/sprite/"+filename+".png")) cout<<"TEXTURE for Tile '"<< xtile<<", "<<yrow<<"' called "<<"assets/sprite/"+filename+".png"<<"NOT FOUND!"<<endl;
-    tilespr.setTexture(&sprtiletex);
-    tilespr.setPosition(sf::Vector2f(xtile*gridsize, yrow*gridsize));
+void game::make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur){
+    tilespr.setTexture(&texture);
+    tilespr.setPosition(sf::Vector2f(xtile*gridsize-boxposx, yrow*gridsize-boxposy));tilespr.setSize(sf::Vector2f(gridsize, gridsize));
     collision(xtile*gridsize-boxposx, yrow*gridsize-boxposy, gridsize, gridsize, behaviur);
     win.draw(tilespr);
+}
+
+void game::load_textures(){
+    tex_grass.loadFromFile("assets/sprite/grass.png");
+    tex_player.loadFromFile("assets/sprite/playertest.png");
 }
