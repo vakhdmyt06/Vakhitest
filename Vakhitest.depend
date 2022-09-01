@@ -31,7 +31,7 @@
 	"header/game.h"
 	"header/deps.h"
 
-1662036227 source:/home/dima/CODING/Vakhitest/src/menu.cpp
+1662043558 source:/home/dima/CODING/Vakhitest/src/menu.cpp
 	"header/game.h"
 
 1662030183 source:/home/dima/CODING/Vakhitest/src/print.cpp
@@ -55,19 +55,19 @@
 	"deps.h"
 	"print.h"
 
-1662028426 source:/home/dima/CODING/Vakhitest/src/button.cpp
+1662043363 source:/home/dima/CODING/Vakhitest/src/button.cpp
 	"header/game.h"
 
 1661023260 source:/home/dima/CODING/Vakhitest/src/editor.cpp
 	"game.h"
 
-1662036179 source:/home/dima/CODING/Vakhitest/src/player.cpp
+1662044508 source:/home/dima/CODING/Vakhitest/src/player.cpp
 	"header/game.h"
 
 1661627005 /home/dima/CODING/Vakhitest/src/player.h
 	"deps.h"
 
-1662038500 /home/dima/CODING/Vakhitest/src/header/game.h
+1662039778 /home/dima/CODING/Vakhitest/src/header/game.h
 	"deps.h"
 	"print.h"
 

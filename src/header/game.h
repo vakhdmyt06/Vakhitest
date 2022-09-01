@@ -80,7 +80,7 @@ private:
         sf::RectangleShape rectbox;
         sf::Sprite sprbox;
         void make_sprite(int posX, int posY, int width, int height, int behavior);
-        float boxposx, boxposy;
+        float boxposx=0.f, boxposy=0.f;
     private:
         sf::Texture image_test;
 

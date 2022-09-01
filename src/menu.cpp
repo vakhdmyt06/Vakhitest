@@ -22,14 +22,16 @@ void game::menutable(){
 //        break;
     }
     if(meninit) room_set();
-    if(menuinit!=menum) room_init();
     if(menum!=0)menu_global();
+    if(menuinit!=menum) room_init();
     menuinit=menum;
 }
 
 void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
-    if(plxpos<win.getSize().x/2)boxposx=0.f; else boxposx=plxpos-400.f;
+    if(plxpos<win.getSize().x/2&&!scrolling)
+        boxposx=0.f;
+    else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else boxposx=plxpos-win.getSize().x/2;
     boxposy=plypos;
     hbobjs.clear();
 

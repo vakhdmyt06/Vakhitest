@@ -8,10 +8,11 @@ void game::room_init(){
 }
 void game::room_set(){
     for(auto &hitboxobj : hbobjs){
-        if(RoomMaxRight<hitboxobj.getPosition().x) RoomMaxRight=hitboxobj.getPosition().x;
-        if(RoomMaxLeft>hitboxobj.getPosition().x+hitboxobj.getGlobalBounds().width) RoomMaxLeft=hitboxobj.getPosition().x;
-        if(RoomMaxDown<hitboxobj.getPosition().y) RoomMaxDown=hitboxobj.getPosition().y;
-        if(RoomMaxUp>hitboxobj.getPosition().y+hitboxobj.getGlobalBounds().height) RoomMaxUp=hitboxobj.getPosition().y;
+        if(RoomMaxRight<hitboxobj.getPosition().x+hitboxobj.getGlobalBounds().width) RoomMaxRight=hitboxobj.getPosition().x;
+        if(RoomMaxLeft>hitboxobj.getPosition().x) RoomMaxLeft=hitboxobj.getPosition().x;
+        if(RoomMaxDown<hitboxobj.getPosition().y+hitboxobj.getGlobalBounds().height) RoomMaxDown=hitboxobj.getPosition().y;
+        if(RoomMaxUp>hitboxobj.getPosition().y) RoomMaxUp=hitboxobj.getPosition().y;
+        cout<<RoomMaxRight<<endl;
     }
     meninit=0;
 }
@@ -72,7 +73,7 @@ void game::input(){
         yvel += speeds[0];
     }
 //    if(plxpos>win.getSize(),x/2) plbox.move(0, 0); else plbox.move(xvel, 0);
-    if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/2)
+    if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/3)
     {
         scrolling=false;
         plbox.move(xvel, 0);
