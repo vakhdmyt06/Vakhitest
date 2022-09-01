@@ -21,14 +21,15 @@ void game::menutable(){
 //        editor();
 //        break;
     }
-    if(menum!=0)menu_global();
+    if(meninit) room_set();
     if(menuinit!=menum) room_init();
+    if(menum!=0)menu_global();
     menuinit=menum;
 }
 
 void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
-    if(plxpos<400.f)boxposx=0.f; else boxposx=plxpos-400.f;
+    if(plxpos<win.getSize().x/2)boxposx=0.f; else boxposx=plxpos-400.f;
     boxposy=plypos;
     hbobjs.clear();
 
@@ -72,7 +73,10 @@ void game::menu_instructions(){
 }
 
 void game::menu_testgrid(){
-//    for(int i=-6; i!=50; i++) for(int j=0; j!=24;j++) make_tile(i,j, tex_grass, 0);
-    make_tile(2,2, tex_grass, 0);
+    gridsize=64;
+    make_tile_extend(2, 1, 20, 10, tex_grass, 0);
+    make_tile_extend(2, 0, 20,0, tex_bound, 1);
+    make_tile_extend(2,11, 20,11, tex_bound, 1);
+    make_tile_extend(21,0, 21,11, tex_bound, 1);
     spawn_player(100, win.getSize().y/2);
 }

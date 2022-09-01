@@ -4,9 +4,16 @@ void game::room_init(){
     plxpos=startX, plypos=startY;
     load_textures();
     plboxdef();
+    meninit=1;
 }
-void game::room_set(int gridsize, int maxL, int maxR, int maxU, int maxD){
-
+void game::room_set(){
+    for(auto &hitboxobj : hbobjs){
+        if(RoomMaxRight<hitboxobj.getPosition().x) RoomMaxRight=hitboxobj.getPosition().x;
+        if(RoomMaxLeft>hitboxobj.getPosition().x+hitboxobj.getGlobalBounds().width) RoomMaxLeft=hitboxobj.getPosition().x;
+        if(RoomMaxDown<hitboxobj.getPosition().y) RoomMaxDown=hitboxobj.getPosition().y;
+        if(RoomMaxUp>hitboxobj.getPosition().y+hitboxobj.getGlobalBounds().height) RoomMaxUp=hitboxobj.getPosition().y;
+    }
+    meninit=0;
 }
 
 void game::spawn_player(int startx, int starty){
@@ -29,8 +36,6 @@ void game::plboxdef(){
 //    plbox.setSize(sf::Vector2f(32,32));
     plbox.setTexture(tex_player); plbox.setScale(sf::Vector2f(1.5,1.5));
     plbox.setPosition(sf::Vector2f(plxpos,  win.getSize().y/2));
-    if(plxpos>win.getSize().x/2) plbox.setPosition(sf::Vector2f(win.getSize().x/2, win.getSize().y/2)); // add y up down scroll  and x left right scroll  STOPS if needed
-    else plbox.setPosition(sf::Vector2f(plxpos,  win.getSize().y/2));
 
 }
 
@@ -66,5 +71,13 @@ void game::input(){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
         yvel += speeds[0];
     }
-    if(plxpos>400.f) plbox.move(0, 0); else plbox.move(xvel, 0);
+//    if(plxpos>win.getSize(),x/2) plbox.move(0, 0); else plbox.move(xvel, 0);
+    if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/2)
+    {
+        scrolling=false;
+        plbox.move(xvel, 0);
+    } else {
+    scrolling=true;
+    plbox.move(0,0); //Intensife thinking ... intensifies
+    }
 }

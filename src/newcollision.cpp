@@ -2,7 +2,7 @@
 void game::collision(int posx, int posy, int width, int height, int collbehav){
     hitboxobj.setPosition(sf::Vector2f(posx, posy)); hitboxobj.setSize(sf::Vector2f(width+2, height+2)); hitboxobj.setOrigin(sf::Vector2f(1,1));
 
-    charx=plbox.getPosition().x, chary=playery-plypos, charw=plbox.getGlobalBounds().width, charh=plbox.getGlobalBounds().height;
+    charx=plbox.getPosition().x, chary=plypos, charw=plbox.getGlobalBounds().width, charh=plbox.getGlobalBounds().height;
 
     detector(collbehav);
 #ifdef show_hitbox
@@ -46,15 +46,15 @@ void game::playercollision(){
             }
             if(nextPos.left < hbobj.left
             && hbplayer.left + hbplayer.width < hbobj.left + hbobj.width
-            && hbplayer.top < hbobj.top + hbobj.height
-            && hbplayer.top + hbplayer.height > hbobj.top){
+            && hbplayer.top < hbobj.top + hbobj.height-5
+            && hbplayer.top + hbplayer.height > hbobj.top+5){
                 xvel=0.f;
                 plbox.setPosition(hbobj.left - hbplayer.width, hbplayer.top);
             }
             else if(nextPos.left > hbobj.left
             && hbplayer.left + hbplayer.width > hbobj.left + hbobj.width
-            && hbplayer.top < hbobj.top + hbobj.height -3
-            && hbplayer.top + hbplayer.height -3 > hbobj.top){
+            && hbplayer.top < hbobj.top + hbobj.height-5
+            && hbplayer.top + hbplayer.height > hbobj.top+5){
                 xvel=0.f;
                 plbox.setPosition(hbobj.left + hbobj.width, hbplayer.top);
             }

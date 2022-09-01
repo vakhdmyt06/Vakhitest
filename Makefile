@@ -13,5 +13,5 @@ winarchive:
 	@echo "##Created win/out/Vakhitest-Release.7z for WINDOWS x86"
 git:
 	git add .
-	git commit -m $(te)
+	git commit -m "$(te)"
 	git push

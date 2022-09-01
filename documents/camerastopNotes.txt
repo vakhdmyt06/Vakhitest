@@ -1,0 +1,15 @@
+header
+plxstop=win.getSize().x/2;
+
+src
+if(plxpos<RoomMaxRight+win.sizeX&&plxpos>RoomMaxRight-win.sizeX)
+plxstop+=xvel;
+player.move(plxstop,0wip);
+	
+
+
+
+
+
+
+else player.move 0,0;  plxpos+=xvel;

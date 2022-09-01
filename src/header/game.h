@@ -51,13 +51,14 @@ private:
         print velprint;
         float plxpos=0, plypos=0;
         void room_init();
-        void room_set(int gridsize, int maxL, int maxR, int maxU, int maxD);
+        void room_set(
+        );
     private:
         void plboxdef();
         void input();
-        float playerx, playery;
         const float speeds[2]{3.5f, 8.f};
         print plname;
+        bool scrolling=false;
 /*
     public: //collision
         void collision(int posxa, int posya, int widtha, int heighta, int collbehav=0);
@@ -86,11 +87,12 @@ private:
     public:
         void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0);
         void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0);
-        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, auto material, int behaviour);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Texture material, int behaviour);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Color material, int behaviour);
         sf::RectangleShape tilecol;
         sf::RectangleShape tilespr;
     private:
-        const unsigned int gridsize=32;
+        unsigned int gridsize=32;
 //        const unsigned int gridscale=2;
 
     public:
@@ -103,12 +105,15 @@ private:
         void playercollision();
         sf::FloatRect nextPos, hbplayer, hbobj;
         int menuinit;
+        bool meninit=0;
+        int RoomMaxUp, RoomMaxDown, RoomMaxLeft, RoomMaxRight;
 
     private: //TEXTURES
         void load_textures();
         sf::Texture tex_grass;
         sf::Texture tex_test;
         sf::Texture tex_player;
+        sf::Texture tex_bound;
 };
 #endif // GAME_H
 
