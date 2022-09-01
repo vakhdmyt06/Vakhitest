@@ -75,13 +75,13 @@ void game::input(){
 //    if(plxpos>win.getSize(),x/2) plbox.move(0, 0); else plbox.move(xvel, 0);
     if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/3)
     {
-        if(plypos<RoomMaxUp||plypos>RoomMaxDown-win.getSize().y/1.3){
+        if(plypos<RoomMaxUp-40||plypos>RoomMaxDown-win.getSize().y/1.3-40){
             plbox.move(xvel, yvel);
         } else {
             scrollingX=false;
             plbox.move(xvel, 0);
         }
-    } else if(plypos<RoomMaxUp||plypos>RoomMaxDown-win.getSize().y/1.3){
+    } else if(plypos<RoomMaxUp-40||plypos>RoomMaxDown-win.getSize().y/1.3-40){
             plbox.move(0, yvel);
         } else {
             scrollingX=true;

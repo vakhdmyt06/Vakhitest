@@ -31,7 +31,7 @@ void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
     if(plxpos<RoomMaxLeft+win.getSize().x/2&&!scrollingX) boxposx=0.f;
     else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else boxposx=plxpos-win.getSize().x/2;
-    if(plypos>RoomMaxUp&&!scrollingY&&plypos<RoomMaxDown-win.getSize().y/1.3) boxposy=plypos;
+    if(plypos>RoomMaxUp-40&&!scrollingY&&plypos<RoomMaxDown-win.getSize().y/1.3-40) boxposy=plypos;
     cout<<plypos<<" "<<RoomMaxUp<<" "<< RoomMaxDown<<endl;
 
 }

@@ -11,6 +11,9 @@ winarchive:
 	@rm -f win/out/Vakhitest-Release.7z
 	7z a -mmt4 -mx=9 -wwin/out win/out/Vakhitest-Release.7z win/out/*
 	@echo "##Created win/out/Vakhitest-Release.7z for WINDOWS x86"
+	cp -r -f assets/ win/out
+	cp -r -f assets/ bin/Debug
+	cp -r -f assets/ bin/Release
 git:
 	git add .
 	git commit -m "$(te)"
