@@ -1,12 +1,12 @@
 #include "header/game.h"
 void game::room_init(){
     cout<<"Room: "<<menum<<endl;
-    plxpos=startX, plypos=startY;
     load_textures();
     plboxdef();
     meninit=1;
 }
 void game::room_set(){
+    RoomMaxRight=0, RoomMaxLeft=0, RoomMaxUp=0, RoomMaxDown=0;
     for(auto &hitboxobj : hbobjs){
         if(RoomMaxRight<hitboxobj.getPosition().x+hitboxobj.getGlobalBounds().width) RoomMaxRight=hitboxobj.getPosition().x;
         if(RoomMaxLeft>hitboxobj.getPosition().x) RoomMaxLeft=hitboxobj.getPosition().x;
@@ -19,8 +19,9 @@ void game::room_set(){
 
 void game::spawn_player(int startx, int starty){
     startX=startx, startY=starty; plxpos+=xvel; plypos+=yvel;
+    if(meninit) plbox.setPosition(startx, starty);
     #ifdef devel
-    velprint.make("xv:"+std::to_string(xvel)+" yv:"+std::to_string(yvel)+" x:"+std::to_string(plxpos)+" y:"+std::to_string(plypos),3, 6, 0,20);
+    velprint.make("xv:"+std::to_string(xvel)+" yv:"+std::to_string(yvel)+" x:"+std::to_string(plxpos)+" y:"+std::to_string(plypos),3, 6, 0,30);
     win.draw(velprint.textname);
     #endif
     input();
@@ -36,7 +37,6 @@ void game::spawn_player(int startx, int starty){
 void game::plboxdef(){
 //    plbox.setSize(sf::Vector2f(32,32));
     plbox.setTexture(tex_player); plbox.setScale(sf::Vector2f(1.5,1.5));
-    plbox.setPosition(sf::Vector2f(plxpos,  win.getSize().y/2));
 
 }
 
@@ -75,10 +75,16 @@ void game::input(){
 //    if(plxpos>win.getSize(),x/2) plbox.move(0, 0); else plbox.move(xvel, 0);
     if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/3)
     {
-        scrolling=false;
-        plbox.move(xvel, 0);
-    } else {
-    scrolling=true;
-    plbox.move(0,0); //Intensife thinking ... intensifies
+        if(plypos<RoomMaxUp||plypos>RoomMaxDown-win.getSize().y/1.3){
+            plbox.move(xvel, yvel);
+        } else {
+            scrollingX=false;
+            plbox.move(xvel, 0);
+        }
+    } else if(plypos<RoomMaxUp||plypos>RoomMaxDown-win.getSize().y/1.3){
+            plbox.move(0, yvel);
+        } else {
+            scrollingX=true;
+            plbox.move(0,0l); //Intensife thinking ... intensifies
     }
 }

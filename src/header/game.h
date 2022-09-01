@@ -51,14 +51,13 @@ private:
         print velprint;
         float plxpos=0, plypos=0;
         void room_init();
-        void room_set(
-        );
+        void room_set();
     private:
         void plboxdef();
         void input();
-        const float speeds[2]{3.5f, 8.f};
+        float speeds[2]{3.5f, 8.f};
         print plname;
-        bool scrolling=false;
+        bool scrollingX=false, scrollingY=false;
 /*
     public: //collision
         void collision(int posxa, int posya, int widtha, int heighta, int collbehav=0);
@@ -79,10 +78,8 @@ private:
         void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior);
         sf::RectangleShape rectbox;
         sf::Sprite sprbox;
-        void make_sprite(int posX, int posY, int width, int height, int behavior);
+        void make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior);
         float boxposx=0.f, boxposy=0.f;
-    private:
-        sf::Texture image_test;
 
     public:
         void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0);
@@ -101,7 +98,7 @@ private:
         sf::RectangleShape hitboxobj,testass;
         float charx, chary, charw, charh;
         const int hitboxsize = 2;
-        std::vector<sf::RectangleShape> hbobjs, hbwalls;
+        std::vector<sf::RectangleShape> hbobjs;
         void playercollision();
         sf::FloatRect nextPos, hbplayer, hbobj;
         int menuinit;

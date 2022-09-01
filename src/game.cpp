@@ -15,11 +15,12 @@ void game::init(){
 }
 void game::update(){
 //    if(devel) editormain();
-    menutable();
+
 }
 void game::render(){
     win.clear();
-    update();
+    hbobjs.clear();
+    menutable();
     win.display();
 }
 
