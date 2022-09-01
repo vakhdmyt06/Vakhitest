@@ -23,12 +23,14 @@ private:
         int menum=menunum;
         //collision chara;
     private: //menu defines
-        void menu_debug(); void menu_test(); void editorsplash(); void menu_global(); void menu_testgrid();
+        void menu_debug(); void menu_test(); void editorsplash(); void menu_global(); void menu_testgrid(); void menu_instructions();
         print debugtitle;
         print debuginfo;
         print debg;
         print test;
-        print editorshout;
+//        print editorshout;
+        print text_instr_title;
+        print text_instr_text;
         //box testbox;
 
     public: //button
@@ -49,6 +51,7 @@ private:
         print velprint;
         float plxpos=0, plypos=0;
         void room_init();
+        void room_set(int gridsize, int maxL, int maxR, int maxU, int maxD);
     private:
         void plboxdef();
         void input();
@@ -83,6 +86,7 @@ private:
     public:
         void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0);
         void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, auto material, int behaviour);
         sf::RectangleShape tilecol;
         sf::RectangleShape tilespr;
     private:

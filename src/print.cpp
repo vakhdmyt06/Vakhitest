@@ -44,28 +44,26 @@ int print::make(string text, int x, int y, int MODE, int charsize, sf::Color chr
 }
 
 int print::print_debug(){
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){ ys--; slep(300); }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){ ys++; slep(300); }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){ ys--; slep(240); }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){ ys++; slep(240); }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) return ys;
     switch(ys){
     case 0:
-        string_debug=std::to_string(ys)+" Debug Map Select";
+        lvlname="Debug Map Select";
         break;
     case 1:
-        string_debug=std::to_string(ys)+" Test Object/ Collision";
-        break;
-    case 2:
-        ys=4;
-        break;
-    case 3:
-        ys=1;
+        lvlname="Test Object/ Collision";
         break;
     case 4:
-        string_debug=std::to_string(ys)+" Test Grid";
+        lvlname="Test Grid";
+        break;
+    case 5:
+        lvlname="Instruction";
         break;
     default:
-        string_debug=std::to_string(ys)+" INVALID MAP";
+        lvlname="INVALID MAP";
     }
+    string_debug=std::to_string(ys)+"> "+lvlname+" <";
     return 0;
 }
 

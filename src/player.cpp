@@ -5,6 +5,9 @@ void game::room_init(){
     load_textures();
     plboxdef();
 }
+void game::room_set(int gridsize, int maxL, int maxR, int maxU, int maxD){
+
+}
 
 void game::spawn_player(int startx, int starty){
     startX=startx, startY=starty; plxpos+=xvel; plypos+=yvel;

@@ -10,6 +10,10 @@ void game::menutable(){
         break;
     case 4:
         menu_testgrid();
+        break;
+    case 5:
+        menu_instructions();
+        break;
 //    case 2:
 //        editorsplash();
 //        break;
@@ -17,7 +21,7 @@ void game::menutable(){
 //        editor();
 //        break;
     }
-    menu_global();
+    if(menum!=0)menu_global();
     if(menuinit!=menum) room_init();
     menuinit=menum;
 }
@@ -40,7 +44,7 @@ void game::menu_debug(){
     win.draw(debugtitle.textname);
     menum=debg.make("Hello World", 0, 0, 1, 40);
     win.draw(debg.textname);
-    buttonmk(win.getSize().x/2, win.getSize().y-200, "PRESS START", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 10, NOTHING,1,sf::Keyboard::Enter);
+    buttonmk(win.getSize().x/2, win.getSize().y-200, "INSTRUCTIONS", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 20, MENU, 5, sf::Keyboard::H);
 }
 
 void game::menu_test(){
@@ -61,8 +65,14 @@ void game::editorsplash(){
 
 }
 */
+void game::menu_instructions(){
+    text_instr_title.make("INSTRUCTIONS", win.getSize().x/2, 20, 2, 50, sf::Color::Blue);
+    text_instr_text.make("Arrow Keys(Up Down Left Right) = Move Around\nBackspace = Open Debug Map Select\nESC = Quit Game", win.getSize().x/2, win.getSize().y/2, 3, 33);
+    win.draw(text_instr_text.textname); win.draw(text_instr_title.textname);
+}
 
 void game::menu_testgrid(){
-    for(int i=-6; i!=50; i++) for(int j=0; j!=24;j++) make_tile(i,j, tex_grass, 0);
+//    for(int i=-6; i!=50; i++) for(int j=0; j!=24;j++) make_tile(i,j, tex_grass, 0);
+    make_tile(2,2, tex_grass, 0);
     spawn_player(100, win.getSize().y/2);
 }

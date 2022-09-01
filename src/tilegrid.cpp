@@ -16,7 +16,12 @@ void game::make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur){
     win.draw(tilespr);
 }
 
+void game::make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, auto material, int behaviour){
+    for(int i=Xbegin; i<=repeatNumX; i++) for(int j=Ybegin; j<=repeatNumY; j++ ) make_tile(i, j, material, behaviour);
+}
+
 void game::load_textures(){
     tex_grass.loadFromFile("assets/sprite/grass.png");
+    tex_grass.setRepeated(true);
     tex_player.loadFromFile("assets/sprite/playertest.png");
 }
