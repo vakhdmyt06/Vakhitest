@@ -36,7 +36,8 @@ void game::spawn_player(int startx, int starty){
 
 void game::plboxdef(){
 //    plbox.setSize(sf::Vector2f(32,32));
-    plbox.setTexture(tex_player); plbox.setScale(sf::Vector2f(1.5,1.5));
+    plbox.setTexture(tex_playerload);
+    plbox.setScale(sf::Vector2f(4,4));
 
 }
 
@@ -60,17 +61,17 @@ void game::input(){
 //        if(yvel<=0.f&&yvel>-speed) {yvel-=0.2f;} else yvel=-speed;
 //    } else if(yvel<0.f) yvel=0.f;
     xvel=0; yvel=0;
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-        xvel += speeds[0];
-    }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-        xvel -= speeds[0];
+        xvel -= speeds;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+        xvel += speeds;
     }
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-        yvel -= speeds[0];
+        yvel -= speeds;
     }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-        yvel += speeds[0];
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+        yvel += speeds;
     }
 //    if(plxpos>win.getSize(),x/2) plbox.move(0, 0); else plbox.move(xvel, 0);
     if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/3)
@@ -87,4 +88,12 @@ void game::input(){
             scrollingX=true;
             plbox.move(0,0l); //Intensife thinking ... intensifies
     }
+//    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&&sf::Keyboard::isKeyPressed(sf::Keyboard::Down)||sf::Keyboard::isKeyPressed(sf::Keyboard::Left)&&sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) plbox.setTexture(tex_playerconfuse);
+//    else {
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) anim_plwalk.player(plbox, 2, speeds);
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) anim_plwalk.player(plbox, 1, speeds);
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) anim_plwalk.player(plbox, 3, speeds);
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) anim_plwalk.player(plbox, 4, speeds);
+//    }
+
 }

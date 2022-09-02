@@ -60,6 +60,9 @@ int print::print_debug(){
     case 5:
         lvlname="Instruction";
         break;
+    case 6:
+        lvlname="Boredom";
+        break;
     default:
         lvlname="INVALID MAP";
     }

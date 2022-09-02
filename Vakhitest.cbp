@@ -51,9 +51,11 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="cb.bmp" />
+		<Unit filename="src/anim.cpp" />
 		<Unit filename="src/box.cpp" />
 		<Unit filename="src/button.cpp" />
 		<Unit filename="src/game.cpp" />
+		<Unit filename="src/header/anim.h" />
 		<Unit filename="src/header/deps.h" />
 		<Unit filename="src/header/game.h" />
 		<Unit filename="src/header/print.h" />

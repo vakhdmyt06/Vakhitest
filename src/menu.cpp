@@ -14,6 +14,8 @@ void game::menutable(){
     case 5:
         menu_instructions();
         break;
+    case 6:
+        menu_boredom();
 //    case 2:
 //        editorsplash();
 //        break;
@@ -29,16 +31,16 @@ void game::menutable(){
 
 void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
-    if(plxpos<RoomMaxLeft+win.getSize().x/2&&!scrollingX) boxposx=0.f;
+    if(plxpos<RoomMaxLeft+win.getSize().x/2) boxposx=0.f;
     else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else boxposx=plxpos-win.getSize().x/2;
-    if(plypos>RoomMaxUp-40&&!scrollingY&&plypos<RoomMaxDown-win.getSize().y/1.3-40) boxposy=plypos;
-    cout<<plypos<<" "<<RoomMaxUp<<" "<< RoomMaxDown<<endl;
+    if(plypos>RoomMaxUp-40&&plypos<RoomMaxDown-win.getSize().y/1.3-40) boxposy=plypos;
+//    cout<<plypos<<" "<<RoomMaxUp<<" "<< RoomMaxDown<<endl;
 
 }
 
 void game::menu_debug(){
     gridsize=32;
-    speeds[0]=3.5;
+    speeds=4;
     /*print("Hello World", 1, 0, 1, 40, sf::Color::White);
     print("y: "+std::to_string(y), 5, 30, 0, 30, sf::Color::White);
     mkbutton(win.getSize().x/2, win.getSize().y/2+100, "PRESS", sf::Color::Red, 90, 50, 40, sf::Color::Green, sf::Color::Blue, 40, 2);*/
@@ -52,6 +54,7 @@ void game::menu_debug(){
 }
 
 void game::menu_test(){
+    speeds=6;
     make_box(300, 400, 380, 300, sf::Color::Cyan, 0);
     make_box(200, 400, 30, 40, sf::Color::Yellow, 1);
     make_box(300, 400, 50, 40, sf::Color::Green, 1);
@@ -77,10 +80,12 @@ void game::menu_instructions(){
 
 void game::menu_testgrid(){
     gridsize=64;
-    speeds[0]=5;
     make_tile_extend(0, 1, 20, 10, tex_grass, 0);
     make_tile_extend(0, 0, 20,0, tex_bound, 1);
     make_tile_extend(0,11, 20,11, tex_bound, 1);
     make_tile_extend(21,0, 21,11, tex_bound, 1);
     spawn_player(10, 300);
+}
+void game::menu_boredom(){
+
 }

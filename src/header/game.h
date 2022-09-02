@@ -3,6 +3,7 @@
 #ifndef GAME_H
 #define GAME_H
 #include "print.h"
+#include "anim.h"
 class game{
 private:
     public:
@@ -23,7 +24,12 @@ private:
         int menum=menunum;
         //collision chara;
     private: //menu defines
-        void menu_debug(); void menu_test(); void editorsplash(); void menu_global(); void menu_testgrid(); void menu_instructions();
+        void menu_debug();
+        void menu_test(); /*void editorsplash();*/
+        void menu_global();
+        void menu_testgrid();
+        void menu_instructions();
+        void menu_boredom();
         print debugtitle;
         print debuginfo;
         print debg;
@@ -55,9 +61,11 @@ private:
     private:
         void plboxdef();
         void input();
-        float speeds[2]{3.5f, 8.f};
+        double speeds=4;
         print plname;
         bool scrollingX=false, scrollingY=false;
+
+        anim anim_plwalk=1;
 /*
     public: //collision
         void collision(int posxa, int posya, int widtha, int heighta, int collbehav=0);
@@ -109,7 +117,8 @@ private:
         void load_textures();
         sf::Texture tex_grass;
         sf::Texture tex_test;
-        sf::Texture tex_player;
+        sf::Texture tex_playerload;
+        sf::Texture tex_playerconfuse;
         sf::Texture tex_bound;
 };
 #endif // GAME_H

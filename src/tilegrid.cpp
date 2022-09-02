@@ -25,7 +25,8 @@ void game::make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNu
 
 void game::load_textures(){
     tex_grass.loadFromFile("assets/sprite/grass.png");
-    tex_player.loadFromFile("assets/sprite/playertest.png");
+    tex_playerload.loadFromFile("assets/sprite/playersheet.png", sf::IntRect(2, 60, 18, 30));
     tex_bound.loadFromFile("assets/sprite/32bound.png");
     tex_test.loadFromFile("assets/sprite/test.png");
+    tex_playerconfuse.loadFromFile("assets/sprite/playertest.png");
 }
