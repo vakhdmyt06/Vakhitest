@@ -17,5 +17,5 @@ winarchive:
 git:
 	git add .
 	git commit -m "$(te)"
-	git pulli
+	git pull
 	git push
