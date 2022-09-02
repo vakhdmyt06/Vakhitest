@@ -4,7 +4,7 @@ windows:
 	@make git
 winbuild:
 	@echo "**Building Vakhitest for WINDOWS x86"
-	x86_64-w64-mingw32-g++ src/*.cpp -o win/out/Vakhitest.exe -I. -Lwin/lib -lsfml-window -lsfml-graphics -lsfml-system -std=c++20
+	i686-w64-mingw32-g++-win32 src/*.cpp -o win/out/Vakhitest.exe -I. -Lwin/lib -lsfml-window -lsfml-graphics -lsfml-system -std=c++20 -m32
 	@echo "**Finished build with no errors"
 winarchive:
 	@echo "**Creating Release 7z"
@@ -17,4 +17,5 @@ winarchive:
 git:
 	git add .
 	git commit -m "$(te)"
+	git pulli
 	git push
