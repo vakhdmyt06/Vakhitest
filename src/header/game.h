@@ -55,6 +55,7 @@ private:
         std::vector<sf::Vector2i> editbox;
         void editor_print();
         bool editor_playing;
+        void debug_player(); void debug_input();
 
 
     public: //player

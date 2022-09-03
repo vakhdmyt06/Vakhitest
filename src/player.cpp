@@ -20,6 +20,29 @@ void game::room_set(){
     meninit=0;
 }
 
+void game::debug_player(){
+    debug_input();
+    playercollision();
+    plbox.setTexture(tex_playerload);
+    win.draw(plbox);
+}
+void game::debug_input(){
+    xvel=0; yvel=0;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+        xvel -= speeds;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+        xvel += speeds;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+        yvel -= speeds;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+        yvel += speeds;
+    }
+    plbox.move(xvel, yvel);
+}
+
 void game::spawn_player(int startx, int starty){
     startX=startx, startY=starty; plxpos+=xvel; plypos+=yvel;
     if(meninit) plbox.setPosition(startx, starty);
@@ -100,6 +123,7 @@ void game::input(){
 //    }
 
 }
+#ifdef _editor
 void game::debug_cam(){
     debugcam=1;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) boxposy-=10;
@@ -107,3 +131,4 @@ void game::debug_cam(){
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) boxposx-=10;
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) boxposx+=10;
 }
+#endif // editor

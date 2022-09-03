@@ -1,5 +1,5 @@
 #include "header/game.h"
-
+#ifdef _editor
 void game::editor(){
     debug_cam();
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Add)) gridsize++; if(sf::Keyboard::isKeyPressed(sf::Keyboard::Subtract)) gridsize--;
@@ -13,7 +13,7 @@ void game::editor(){
     if(sf::Mouse::isButtonPressed(sf::Mouse::Right)) std::remove(editbox.begin(), editbox.end(), sf::Vector2i(fieldx,fieldy));
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::RControl)) editor_print();
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) if(editor_playing) {editor_playing=false; plbox.setPosition(sf::Vector2f(win.getPosition().x/2,win.getPosition().y/2)); } else editor_playing=true;
-    if(editor_playing) spawn_player(0,0);
+    if(editor_playing) debug_player();
 }
 
 bool game::editor_poscheck(int xb, int yb){
@@ -30,3 +30,4 @@ void game::editor_print(){
     }
     slep(3, 1);
 }
+#endif

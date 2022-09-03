@@ -18,11 +18,16 @@ void game::menutable(){
         menu_boredom();
         break;
     case 2:
+#ifdef _editor
         editor();
+#else
+        printxt("editor wasnt included ):", win.getSize().x/2, 20, 2, 50, sf::Color::Red);
+#endif
+
 //        editorsplash();
         break;
     case 3:
-        printxt("YOU ARE AN IDIOT", win.getSize().x/2, 20, 2, 50, sf::Color::Blue);
+        printxt("YOU ARE AN IDIOT", win.getSize().x/2, win.getSize().y/2-50, 2, 100, sf::Color::Green);
 //        editor();
         break;
     }
