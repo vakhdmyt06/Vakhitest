@@ -7,7 +7,7 @@ void game::room_init(){
 }
 void game::room_set(){
     RoomMaxRight=0, RoomMaxLeft=0, RoomMaxUp=0, RoomMaxDown=0;
-    int objcount;
+    int objcount=0;
     for(auto &hitboxobj : hbobjs){
         if(RoomMaxRight<hitboxobj.getPosition().x+hitboxobj.getGlobalBounds().width) RoomMaxRight=hitboxobj.getPosition().x;
         if(RoomMaxLeft>hitboxobj.getPosition().x) RoomMaxLeft=hitboxobj.getPosition().x;
