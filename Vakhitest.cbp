@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Option use_console_runner="0" />
 				<Compiler>
+					<Add option="-std=c17" />
 					<Add option="-m64" />
 					<Add option="-g" />
 					<Add option="-std=c++20" />
@@ -54,6 +55,7 @@
 		<Unit filename="src/anim.cpp" />
 		<Unit filename="src/box.cpp" />
 		<Unit filename="src/button.cpp" />
+		<Unit filename="src/editor.cpp" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/header/anim.h" />
 		<Unit filename="src/header/deps.h" />

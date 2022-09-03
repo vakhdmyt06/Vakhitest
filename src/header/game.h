@@ -13,6 +13,10 @@ private:
         sf::RenderWindow win;
         sf::Event eve;
         void slep(int milliseconds, int mode=0);
+        string str(int &input);
+        string str(float &input);
+        string str(double &input);
+        string str(unsigned int &input);
 
     private: //menu system
         void menutable();
@@ -30,14 +34,11 @@ private:
         void menu_testgrid();
         void menu_instructions();
         void menu_boredom();
-        print debugtitle;
-        print debuginfo;
-        print debg;
-        print test;
+        print text_print;
+        print debgsel;
 //        print editorshout;
-        print text_instr_title;
-        print text_instr_text;
         //box testbox;
+        void printxt(string text, int x, int y, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
 
     public: //button
         void buttonmk(int x, int y, string text0, sf::Color colfill=sf::Color(100,100,100,255), int offsetX=10, int offsetY=10, int charsize=40, sf::Color charcol=sf::Color::Black, sf::Color coloutline=sf::Color::White, int outlinesize=1, sf::Color colfillpress=sf::Color(200,200,200,255), int offsetXpress=3, int offsetYpress=3, unsigned int msPress=50, action type=NOTHING, int menu_number=0, sf::Keyboard::Key key=sf::Keyboard::Unknown);
@@ -45,17 +46,24 @@ private:
         sf::RectangleShape buttonbox;
         print buttontext;
 
-//    private: //EDITOR
-//        void editormain(); void editor(); string editorinput(); int editoroffX(); int editoroffY(); int editorcharsiz(); int editorposX(); int editorposY();
-//        int edoffX=10, edoffY=10, edcharsiz=40, edposY=0, edposX=0;
+    private: //EDITOR
+        void editor(); void editorsplash();
+        void debug_cam();
+        bool debugcam;
+        bool editor_poscheck(int xb, int yb);
+        sf::Vector2i editilepos;
+        std::vector<sf::Vector2i> editbox;
+        void editor_print();
+        bool editor_playing;
+
 
     public: //player
         void spawn_player(int startx, int starty);
-        float xvel=0.f, yvel=0.f;
+        double xvel=0, yvel=0;
         int startX, startY;
         sf::Sprite plbox;
         print velprint;
-        float plxpos=0, plypos=0;
+        int plxpos=0, plypos=0;
         void room_init();
         void room_set();
     private:
@@ -104,7 +112,7 @@ private:
         void collision(int posx, int posy, int width, int height, int collbehav=0);
         void detector(int collbehav);
         sf::RectangleShape hitboxobj,testass;
-        float charx, chary, charw, charh;
+        int charx, chary, charw, charh;
         const int hitboxsize = 2;
         std::vector<sf::RectangleShape> hbobjs;
         void playercollision();

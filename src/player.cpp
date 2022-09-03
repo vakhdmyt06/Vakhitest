@@ -7,13 +7,16 @@ void game::room_init(){
 }
 void game::room_set(){
     RoomMaxRight=0, RoomMaxLeft=0, RoomMaxUp=0, RoomMaxDown=0;
+    int objcount;
     for(auto &hitboxobj : hbobjs){
         if(RoomMaxRight<hitboxobj.getPosition().x+hitboxobj.getGlobalBounds().width) RoomMaxRight=hitboxobj.getPosition().x;
         if(RoomMaxLeft>hitboxobj.getPosition().x) RoomMaxLeft=hitboxobj.getPosition().x;
         if(RoomMaxDown<hitboxobj.getPosition().y+hitboxobj.getGlobalBounds().height) RoomMaxDown=hitboxobj.getPosition().y;
         if(RoomMaxUp>hitboxobj.getPosition().y) RoomMaxUp=hitboxobj.getPosition().y;
-        cout<<RoomMaxRight<<endl;
+        objcount++;
     }
+    cout<<"Left: "<<RoomMaxLeft<<", Right:"<<RoomMaxRight<<", Up: "<<RoomMaxUp<<", Down:" <<RoomMaxDown<<endl;
+    cout<<objcount<<" objects with collision"<<endl;
     meninit=0;
 }
 
@@ -96,4 +99,11 @@ void game::input(){
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) anim_plwalk.player(plbox, 4, speeds);
 //    }
 
+}
+void game::debug_cam(){
+    debugcam=1;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)) boxposy-=10;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)) boxposy+=10;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) boxposx-=10;
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) boxposx+=10;
 }

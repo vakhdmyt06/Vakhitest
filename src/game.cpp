@@ -24,3 +24,19 @@ void game::render(){
     win.display();
 }
 
+void game::printxt(string text, int x, int y, int MODE, int charsize, sf::Color chrcol){
+    text_print.make(text, x, y, MODE, charsize, chrcol);
+    win.draw(text_print.textname);
+}
+string game::str(int &input){
+    return std::to_string(input);
+}
+string game::str(float &input){
+    return std::to_string(input);
+}
+string game::str(double &input){
+    return std::to_string(input);
+}
+string game::str(unsigned int &input){
+    return std::to_string(input);
+}

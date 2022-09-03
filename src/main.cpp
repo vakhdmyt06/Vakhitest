@@ -12,13 +12,18 @@ cout << " - CREATING " << winame << endl;
 	gam.win.setFramerateLimit(60);
 	cout << " - Welcome to " << winame << endl;
 	gam.init();
+	bool focus;
 	while(gam.win.isOpen()){
 	    while(gam.win.pollEvent(gam.eve)){
 	        if(gam.eve.type == sf::Event::Closed) gam.win.close();
 	        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) gam.win.close();
+	        if(gam.eve.type == sf::Event::GainedFocus) focus = true;
+	        if(gam.eve.type == sf::Event::LostFocus) focus = false;
         }
-    //gam.update();
-    gam.render();
+        if(focus) {
+            //gam.update();
+            gam.render();
+        }
 	}
 	cout << " - Exiting " << winame << endl;
     return 0;

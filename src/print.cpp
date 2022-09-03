@@ -39,7 +39,9 @@ int print::make(string text, int x, int y, int MODE, int charsize, sf::Color chr
         break;
     }
     textname.setPosition(sf::Vector2f(xpos, ypos));
-    //dot.setPosition(sf::Vector2f(xpos+textname.getLocalBounds().width/2-2, ypos+textname.getLocalBounds().height)); win.draw(dot);
+#ifdef debug
+    dot.setPosition(sf::Vector2f(xpos+textname.getLocalBounds().width/2-2, ypos+textname.getLocalBounds().height)); win.draw(dot);
+#endif
     return menuum;
 }
 
@@ -62,6 +64,12 @@ int print::print_debug(){
         break;
     case 6:
         lvlname="Boredom";
+        break;
+    case 2:
+        lvlname="Level Maker/\"Editor\"";
+        break;
+    case 3:
+        lvlname="do not enter";
         break;
     default:
         lvlname="INVALID MAP";
