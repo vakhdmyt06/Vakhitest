@@ -58,7 +58,7 @@
 1662043363 source:/home/dima/CODING/Vakhitest/src/button.cpp
 	"header/game.h"
 
-1662284051 source:/home/dima/CODING/Vakhitest/src/editor.cpp
+1662284431 source:/home/dima/CODING/Vakhitest/src/editor.cpp
 	"header/game.h"
 
 1662226181 source:/home/dima/CODING/Vakhitest/src/player.cpp
@@ -72,7 +72,7 @@
 	"print.h"
 	"anim.h"
 
-1662225270 /home/dima/CODING/Vakhitest/src/header/deps.h
+1662284494 /home/dima/CODING/Vakhitest/src/header/deps.h
 	<SFML/Graphics.hpp>
 	<string>
 	<iostream>
