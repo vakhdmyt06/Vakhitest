@@ -3,7 +3,5 @@
 Windows Archive: win/out/Vakhitest-Release.7z<br />
 Linux EXE: bin/*/Vakhitest<br />
 
-INSTALL LATEST VC++ STUFF<br />
-https://aka.ms/vs/17/release/vc_redist.x86.exe
-
-Note that the Windows Build needs a lot of dll's and im too lazy(im running linux)
+its not inspired by undertale at     all      yeah  <br />
+i dont know what the game should be about but atleast i got a engine now......................................... yey
