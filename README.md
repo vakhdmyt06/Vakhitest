@@ -1,6 +1,6 @@
 # Vakhitest
 
-Windows Archive: win/out/Vakhitest-Release.7z<br />
+Windows Archive: win/Vakhitov-*.7z<br />
 Linux EXE: bin/*/Vakhitest<br />
 
 its not inspired by undertale at     all      yeah  <br />
