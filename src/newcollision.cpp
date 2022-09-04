@@ -1,22 +1,22 @@
 #include "header/game.h"
-void game::collision(int posx, int posy, int width, int height, int collbehav, int id){
+void game::collision(int posx, int posy, int width, int height, int collbehav, int id, int entry){
     hitboxobj.setPosition(sf::Vector2f(posx, posy)); hitboxobj.setSize(sf::Vector2f(width+2, height+2)); hitboxobj.setOrigin(sf::Vector2f(1,1));
 
     charx=plbox.getPosition().x, chary=plypos, charw=plbox.getGlobalBounds().width, charh=plbox.getGlobalBounds().height;
 
-    detector(collbehav, id);
+    detector(collbehav, id, entry);
 #ifdef show_hitbox
     win.draw(hitboxobj);
 #endif // show_hitbox
 }
 
-void game::detector(int collbehav, int id){
+void game::detector(int collbehav, int id, int entry){
     switch(collbehav){
         case 1:
             hbobjs.push_back(hitboxobj);
             break;
         case 2:
-            if(hitboxobj.getGlobalBounds().intersects(plbox.getGlobalBounds())) menum=id;
+            if(hitboxobj.getGlobalBounds().intersects(plbox.getGlobalBounds())) { menum=id; room_loadentry(entry); }
             break;
     }
 }

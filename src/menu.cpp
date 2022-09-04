@@ -17,6 +17,9 @@ void game::menutable(){
     case 6:
         menu_boredom();
         break;
+    case 7:
+        menu_testdoor();
+        break;
     case 2:
 #ifdef _editor
         editor();
@@ -39,11 +42,11 @@ void game::menutable(){
 
 void game::menu_global(){
     buttonmk(win.getSize().x/2, win.getSize().y-50, "MAP SELECT", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
-    if(!debugcam){if(plxpos<RoomMaxLeft+win.getSize().x/2) boxposx=0.f
-    ;
-    else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else boxposx=plxpos-win.getSize().x/2;
-    if(plypos>RoomMaxUp-40&&plypos<RoomMaxDown-win.getSize().y/1.3-40) boxposy=plypos;}
-//    cout<<plypos<<" "<<RoomMaxUp<<" "<< RoomMaxDown<<endl;
+//    if(!debugcam){if(plxpos<RoomMaxLeft+win.getSize().x/2) boxposx=0.f;
+//    else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else
+    boxposx=plxpos-400;/*
+    if(plypos>RoomMaxUp-40&&plypos<RoomMaxDown-win.getSize().y/1.3-40) */boxposy=plypos;/*}
+//    cout<<plypos<<" "<<RoomMaxUp<<" "<< RoomMaxDown<<endl;*/
 
 }
 
@@ -92,6 +95,7 @@ void game::menu_testgrid(){
     spawn_player(10, 300);
 }
 void game::menu_boredom(){
+    room_setentry(690,-26,1);
 make_tile_extend(0, 4, 0, 14, sf::Color::White, 1);
 make_tile(1, 15, sf::Color::White, 1);
 make_tile(1, 16, sf::Color::White, 1);
@@ -144,6 +148,65 @@ make_tile(8, 0, sf::Color::White, 1);
 make_tile(8, 18, sf::Color::White, 1);
 make_tile(9, 0, sf::Color::White, 1);
 make_tile(9, 18, sf::Color::White, 1);
-    make_tile(15, 15, tex_bound, 2, 4);
+    make_tile(24, 9, tex_bound, 2, 7, 1);
     spawn_player(win.getSize().x/2, win.getSize().y/2);
+}
+
+void game::menu_testdoor(){
+    cout<<room_entrynum<<endl;
+    room_setentry(70,-26,1);
+make_tile_extend(0, 4, 0, 14, sf::Color::White, 1);
+make_tile(1, 15, sf::Color::White, 1);
+make_tile(1, 16, sf::Color::White, 1);
+make_tile(1, 2, sf::Color::White, 1);
+make_tile(1, 3, sf::Color::White, 1);
+make_tile(10, 0, sf::Color::White, 1);
+make_tile(10, 18, sf::Color::White, 1);
+make_tile(11, 0, sf::Color::White, 1);
+make_tile(11, 18, sf::Color::White, 1);
+make_tile(12, 0, sf::Color::White, 1);
+make_tile(12, 18, sf::Color::White, 1);
+make_tile(13, 0, sf::Color::White, 1);
+make_tile(13, 18, sf::Color::White, 1);
+make_tile(14, 0, sf::Color::White, 1);
+make_tile(14, 18, sf::Color::White, 1);
+make_tile(15, 0, sf::Color::White, 1);
+make_tile(15, 18, sf::Color::White, 1);
+make_tile(16, 0, sf::Color::White, 1);
+make_tile(16, 18, sf::Color::White, 1);
+make_tile(17, 0, sf::Color::White, 1);
+make_tile(17, 18, sf::Color::White, 1);
+make_tile(18, 0, sf::Color::White, 1);
+make_tile(18, 18, sf::Color::White, 1);
+make_tile(19, 0, sf::Color::White, 1);
+make_tile(19, 18, sf::Color::White, 1);
+make_tile(2, 1, sf::Color::White, 1);
+make_tile(2, 17, sf::Color::White, 1);
+make_tile(20, 0, sf::Color::White, 1);
+make_tile(20, 18, sf::Color::White, 1);
+make_tile(21, 0, sf::Color::White, 1);
+make_tile(21, 18, sf::Color::White, 1);
+make_tile(22, 1, sf::Color::White, 1);
+make_tile(22, 17, sf::Color::White, 1);
+make_tile(23, 15, sf::Color::White, 1);
+make_tile(23, 16, sf::Color::White, 1);
+make_tile(23, 2, sf::Color::White, 1);
+make_tile(23, 3, sf::Color::White, 1);
+make_tile_extend(24, 4, 24, 14, sf::Color::White, 1);
+make_tile(3, 0, sf::Color::White, 1);
+make_tile(3, 18, sf::Color::White, 1);
+make_tile(4, 0, sf::Color::White, 1);
+make_tile(4, 18, sf::Color::White, 1);
+make_tile(5, 0, sf::Color::White, 1);
+make_tile(5, 18, sf::Color::White, 1);
+make_tile(6, 0, sf::Color::White, 1);
+make_tile(6, 18, sf::Color::White, 1);
+make_tile(7, 0, sf::Color::White, 1);
+make_tile(7, 18, sf::Color::White, 1);
+make_tile(8, 0, sf::Color::White, 1);
+make_tile(8, 18, sf::Color::White, 1);
+make_tile(9, 0, sf::Color::White, 1);
+make_tile(9, 18, sf::Color::White, 1);
+    make_tile(0, 9, tex_bound, 2, 6, 1);
+    spawn_player(0, 0);
 }

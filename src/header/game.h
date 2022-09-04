@@ -35,6 +35,7 @@ private:
         void menu_testgrid();
         void menu_instructions();
         void menu_boredom();
+        void menu_testdoor();
         print text_print;
         print debgsel;
 //        print editorshout;
@@ -74,6 +75,7 @@ private:
         double speeds=4;
         print plname;
         bool scrollingX=false, scrollingY=false;
+        unsigned int room_entrynum=0;
 
         anim anim_plwalk=1;
 /*
@@ -93,17 +95,17 @@ private:
         void drawcharaline();
 */
     public: //box
-        void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior, int id=0);
+        void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior, int id=0, int entry=0);
         sf::RectangleShape rectbox;
         sf::Sprite sprbox;
-        void make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior, int id=0);
+        void make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior, int id=0, int entry=0);
         float boxposx=0.f, boxposy=0.f;
 
     public:
-        void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0, int id=0);
-        void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0, int id=0);
-        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Texture material, int behaviour, int id=0);
-        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Color material, int behaviour, int id=0);
+        void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0, int id=0, int entry=0);
+        void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0, int id=0, int entry=0);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Texture material, int behaviour, int id=0, int entry=0);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Color material, int behaviour, int id=0, int entry=0);
         sf::RectangleShape tilecol;
         sf::RectangleShape tilespr;
     private:
@@ -111,8 +113,8 @@ private:
 //        const unsigned int gridscale=2;
 
     public: //NEW COLLISION
-        void collision(int posx, int posy, int width, int height, int collbehav=0, int id=0);
-        void detector(int collbehav, int id);
+        void collision(int posx, int posy, int width, int height, int collbehav=0, int id=0, int entry=0);
+        void detector(int collbehav, int id, int entry);
         sf::RectangleShape hitboxobj,testass;
         int charx, chary, charw, charh;
         const int hitboxsize = 2;
@@ -122,6 +124,14 @@ private:
         int menuinit;
         bool meninit=0;
         int RoomMaxUp, RoomMaxDown, RoomMaxLeft, RoomMaxRight;
+
+//    public:
+//        void fade_basicin(int ms); void fade_basicout(int ms);
+//        sf::RectangleShape fade_basicbox;
+//        void fade_init();
+
+        void room_setentry(int x, int y, int id=0); sf::Vector2i room_loadentry(int id);
+        std::vector<sf::Vector2i> room_entries;
 
     private: //TEXTURES
         void load_textures();

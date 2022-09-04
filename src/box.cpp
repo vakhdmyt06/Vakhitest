@@ -1,15 +1,15 @@
 #include "header/game.h"
-void game::make_box(int posX, int posY, int width, int height, sf::Color col, int behavior, int id){
+void game::make_box(int posX, int posY, int width, int height, sf::Color col, int behavior, int id, int entry){
 //    #ifdef devel
 //    cout<<plbox.getPosition().x<<"  "<<boxposx<<endl;
 //    #endif // devel
     rectbox.setFillColor(col); rectbox.setSize(sf::Vector2f(width, height));
     rectbox.setPosition(sf::Vector2f(posX-boxposx, posY-boxposy));
-    collision(posX-boxposx, posY-boxposy, width, height, behavior, id);
+    collision(posX-boxposx, posY-boxposy, width, height, behavior, id, entry);
     win.draw(rectbox);
 }
 
-void game::make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior, int id){
+void game::make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior, int id, int entry){
 //    #ifdef devel
 //    cout<<plbox.getPosition().x<<"  "<<boxposx<<endl;
 //    #endif // devel
@@ -18,5 +18,5 @@ void game::make_sprite(int posX, int posY, int width, int height, sf::Texture &t
     sprbox.setPosition(sf::Vector2f(posX-boxposx-8*width, posY-boxposy-8*height));
     sprbox.setTexture(texture);
     win.draw(sprbox);
-    collision(posX-boxposx-sprbox.getGlobalBounds().width/2, posY-boxposy-sprbox.getGlobalBounds().height/2, sprbox.getGlobalBounds().width, sprbox.getGlobalBounds().height, behavior, id);
+    collision(posX-boxposx-sprbox.getGlobalBounds().width/2, posY-boxposy-sprbox.getGlobalBounds().height/2, sprbox.getGlobalBounds().width, sprbox.getGlobalBounds().height, behavior, id, entry);
 }

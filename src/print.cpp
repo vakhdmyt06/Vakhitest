@@ -79,5 +79,11 @@ int print::print_debug(){
 }
 
 void print::slep(int milliseconds, int mode){
-    sf::Clock clock;clock.restart();timevar = 0;milliseconds--; while( timevar < milliseconds){ mode==1 ? timevar = clock.getElapsedTime().asSeconds() : timevar = clock.getElapsedTime().asMilliseconds(); } //cout << time << endl; }
+    sf::Clock clock;
+    clock.restart();
+    timevar = 0;
+    milliseconds--;
+    while( timevar < milliseconds)
+    { mode==1 ? timevar = clock.getElapsedTime().asSeconds() : timevar = clock.getElapsedTime().asMilliseconds();
+    } //cout << time << endl; }
 }

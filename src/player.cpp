@@ -1,9 +1,10 @@
 #include "header/game.h"
 void game::room_init(){
     cout<<"Room: "<<menum<<endl;
-    plxpos=0, plypos=0;
     load_textures();
     plboxdef();
+    room_entries.clear();
+    room_entries.push_back(sf::Vector2i(win.getSize().x/2, 0));
     meninit=1;
 }
 void game::room_set(){
@@ -17,7 +18,8 @@ void game::room_set(){
         objcount++;
     }
     cout<<"Left: "<<RoomMaxLeft<<", Right:"<<RoomMaxRight<<", Up: "<<RoomMaxUp<<", Down:" <<RoomMaxDown<<endl;
-    cout<<objcount<<" objects with collision"<<endl;
+    cout<<objcount<<" objects with collision"<<room_entrynum<<endl;
+    plxpos=room_entries[room_entrynum].x, plypos=room_entries[room_entrynum].y;
     meninit=0;
 }
 
@@ -45,10 +47,9 @@ void game::debug_input(){
 }
 
 void game::spawn_player(int startx, int starty){
-    startX=startx, startY=starty; plxpos+=xvel; plypos+=yvel;
-    if(meninit) plbox.setPosition(startx, starty);
+    startX=startx, startY=starty; plxpos+=xvel; plypos+=yvel;//remove startYX
     #ifdef devel
-    velprint.make("xv:"+std::to_string(xvel)+" yv:"+std::to_string(yvel)+" x:"+std::to_string(plxpos)+" y:"+std::to_string(plypos),3, 6, 0,30);
+    velprint.make("xv:"+std::to_string(xvel)+" yv:"+std::to_string(yvel)+" x:"+std::to_string(plxpos)+" y:"+std::to_string(plypos)+" xobj:"+str(boxposx)+" yobj:"+str(boxposy),3, 6, 0,30);
     win.draw(velprint.textname);
     #endif
     input();
@@ -56,6 +57,7 @@ void game::spawn_player(int startx, int starty){
     win.draw(plbox);
     plname.make("Gubed", plbox.getPosition().x+plbox.getGlobalBounds().width/2, plbox.getPosition().y-plbox.getGlobalBounds().height/2+10, 2,25);
     win.draw(plname.textname);
+    plbox.setPosition(win.getSize().x/2, win.getSize().y/2);
 //    #ifdef devel
 //    cout<<startX<<", "<<startY<<endl;
 //    #endif
@@ -64,7 +66,7 @@ void game::spawn_player(int startx, int starty){
 void game::plboxdef(){
 //    plbox.setSize(sf::Vector2f(32,32));
     plbox.setTexture(tex_playerload);
-    plbox.setScale(sf::Vector2f(4,4));
+    plbox.setScale(sf::Vector2f(3.6,3.6));
 
 }
 
@@ -101,20 +103,20 @@ void game::input(){
         yvel += speeds;
     }
 //    if(plxpos>win.getSize(),x/2) plbox.move(0, 0); else plbox.move(xvel, 0);
-    if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/3)
-    {
-        if(plypos<RoomMaxUp-40||plypos>RoomMaxDown-win.getSize().y/1.3-40){
-            plbox.move(xvel, yvel);
-        } else {
-            scrollingX=false;
-            plbox.move(xvel, 0);
-        }
-    } else if(plypos<RoomMaxUp-40||plypos>RoomMaxDown-win.getSize().y/1.3-40){
-            plbox.move(0, yvel);
-        } else {
-            scrollingX=true;
-            plbox.move(0,0l); //Intensife thinking ... intensifies
-    }
+//    if(plxpos<RoomMaxLeft+win.getSize().x/2||plxpos>RoomMaxRight-win.getSize().x/3)
+//    {
+//        if(plypos<RoomMaxUp-40||plypos>RoomMaxDown-win.getSize().y/1.3-40){
+//            plbox.move(xvel, yvel);
+//        } else {
+////            scrollingX=false;
+//            plbox.move(xvel, 0);
+//        }
+//    } else if(plypos<RoomMaxUp-40||plypos>RoomMaxDown-win.getSize().y/1.3-40){
+//            plbox.move(0, yvel);
+//        } else {
+////            scrollingX=true;
+//            plbox.move(0,0); //Intensife thinking ... intensifies
+//    }
 //    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&&sf::Keyboard::isKeyPressed(sf::Keyboard::Down)||sf::Keyboard::isKeyPressed(sf::Keyboard::Left)&&sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) plbox.setTexture(tex_playerconfuse);
 //    else {
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) anim_plwalk.player(plbox, 2, speeds);

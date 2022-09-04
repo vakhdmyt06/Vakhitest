@@ -12,6 +12,7 @@ void game::slep(int milliseconds, int mode){
 }
 
 void game::init(){
+//    fade_init();
 }
 void game::update(){
 //    if(devel) editormain();
