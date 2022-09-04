@@ -31,7 +31,7 @@
 	"header/game.h"
 	"header/deps.h"
 
-1662304517 source:/home/dima/CODING/Vakhitest/src/menu.cpp
+1662304636 source:/home/dima/CODING/Vakhitest/src/menu.cpp
 	"header/game.h"
 
 1662295667 source:/home/dima/CODING/Vakhitest/src/print.cpp
@@ -72,7 +72,7 @@
 	"print.h"
 	"anim.h"
 
-1662300108 /home/dima/CODING/Vakhitest/src/header/deps.h
+1662305038 /home/dima/CODING/Vakhitest/src/header/deps.h
 	<SFML/Graphics.hpp>
 	<string>
 	<iostream>
