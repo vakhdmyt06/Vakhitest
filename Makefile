@@ -4,7 +4,7 @@ windows:
 	@make git
 winbuild:
 	@echo "**Building Vakhitest for WINDOWS x86"
-	i686-w64-mingw32-g++-win32 src/*.cpp -o win/out/Vakhitest.exe -I. -Lwin/lib -lsfml-window -lsfml-graphics -lsfml-system -std=c++20 -m32 -O2 -s -DNDEBUG
+	i686-w64-mingw32-g++-win32 -DSFML_STATIC -DSFML_SHARED -I. src/*.cpp -o win/out/Vakhitest.exe -static -mwindows  -L./win/lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lwinmm -lfreetype -lgdi32 -std=c++17 -m32 -m32 -O2 -s -DNDEBUG
 	@echo "**Finished build with no errors"
 winarchive:
 	@echo "**Creating Release 7z"
