@@ -1,6 +1,7 @@
 #include "header/game.h"
 void game::room_init(){
     cout<<"Room: "<<menum<<endl;
+    plxpos=0, plypos=0;
     load_textures();
     plboxdef();
     meninit=1;

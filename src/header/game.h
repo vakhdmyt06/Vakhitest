@@ -27,6 +27,7 @@ private:
         enum menus{ debug=0, title, editorshot, edit} menunum;
         int menum=menunum;
         //collision chara;
+
     private: //menu defines
         void menu_debug();
         void menu_test(); /*void editorsplash();*/
@@ -92,26 +93,26 @@ private:
         void drawcharaline();
 */
     public: //box
-        void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior);
+        void make_box(int posX, int posY, int width, int height, sf::Color col, int behavior, int id=0);
         sf::RectangleShape rectbox;
         sf::Sprite sprbox;
-        void make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior);
+        void make_sprite(int posX, int posY, int width, int height, sf::Texture &texture, int behavior, int id=0);
         float boxposx=0.f, boxposy=0.f;
 
     public:
-        void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0);
-        void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0);
-        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Texture material, int behaviour);
-        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Color material, int behaviour);
+        void make_tile(int xtile, int yrow, sf::Color col=sf::Color::Black, int behaviur=0, int id=0);
+        void make_tile(int xtile, int yrow, sf::Texture &texture, int behaviur=0, int id=0);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Texture material, int behaviour, int id=0);
+        void make_tile_extend(int Xbegin, int Ybegin, int repeatNumX, int repeatNumY, sf::Color material, int behaviour, int id=0);
         sf::RectangleShape tilecol;
         sf::RectangleShape tilespr;
     private:
         unsigned int gridsize=32;
 //        const unsigned int gridscale=2;
 
-    public:
-        void collision(int posx, int posy, int width, int height, int collbehav=0);
-        void detector(int collbehav);
+    public: //NEW COLLISION
+        void collision(int posx, int posy, int width, int height, int collbehav=0, int id=0);
+        void detector(int collbehav, int id);
         sf::RectangleShape hitboxobj,testass;
         int charx, chary, charw, charh;
         const int hitboxsize = 2;

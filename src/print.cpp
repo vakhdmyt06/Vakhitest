@@ -63,7 +63,7 @@ int print::print_debug(){
         lvlname="Instruction";
         break;
     case 6:
-        lvlname="Boredom";
+        lvlname="Test Door";
         break;
     case 2:
         lvlname="Level Maker/\"Editor\"";

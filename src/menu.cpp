@@ -38,7 +38,7 @@ void game::menutable(){
 }
 
 void game::menu_global(){
-    buttonmk(win.getSize().x/2, win.getSize().y-50, "-DEBUG", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
+    buttonmk(win.getSize().x/2, win.getSize().y-50, "MAP SELECT", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
     if(!debugcam){if(plxpos<RoomMaxLeft+win.getSize().x/2) boxposx=0.f
     ;
     else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else boxposx=plxpos-win.getSize().x/2;
@@ -56,7 +56,7 @@ void game::menu_debug(){
     printxt("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 50);
     printxt("INFO\nPress UP | DOWN Arrows to change map\nPress Enter to enter map\nPress Backspace or -DEBUG to go back", win.getSize().x/2, 130, 2, 33);
     menum=debgsel.make("Hello World", 0, 0, 1, 40); win.draw(debgsel.textname);
-    buttonmk(win.getSize().x/2, win.getSize().y-200, "INSTRUCTIONS", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 20, MENU, 5, sf::Keyboard::H);
+    buttonmk(win.getSize().x/2, win.getSize().y-200, "INSTRUCTIONS", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),10,10, 10, MENU, 5, sf::Keyboard::H);
 }
 
 void game::menu_test(){
@@ -92,17 +92,7 @@ void game::menu_testgrid(){
     spawn_player(10, 300);
 }
 void game::menu_boredom(){
-    spawn_player(win.getSize().x/2, win.getSize().y/2);
-make_tile(0, 11, sf::Color::White, 1);
-make_tile(0, 12, sf::Color::White, 1);
-make_tile(0, 13, sf::Color::White, 1);
-make_tile(0, 14, sf::Color::White, 1);
-make_tile(0, 4, sf::Color::White, 1);
-make_tile(0, 5, sf::Color::White, 1);
-make_tile(0, 6, sf::Color::White, 1);
-make_tile(0, 7, sf::Color::White, 1);
-make_tile(0, 8, sf::Color::White, 1);
-make_tile(0, 9, sf::Color::White, 1);
+make_tile_extend(0, 4, 0, 14, sf::Color::White, 1);
 make_tile(1, 15, sf::Color::White, 1);
 make_tile(1, 16, sf::Color::White, 1);
 make_tile(1, 2, sf::Color::White, 1);
@@ -139,17 +129,7 @@ make_tile(23, 15, sf::Color::White, 1);
 make_tile(23, 16, sf::Color::White, 1);
 make_tile(23, 2, sf::Color::White, 1);
 make_tile(23, 3, sf::Color::White, 1);
-make_tile(24, 10, sf::Color::White, 1);
-make_tile(24, 11, sf::Color::White, 1);
-make_tile(24, 12, sf::Color::White, 1);
-make_tile(24, 13, sf::Color::White, 1);
-make_tile(24, 14, sf::Color::White, 1);
-make_tile(24, 4, sf::Color::White, 1);
-make_tile(24, 5, sf::Color::White, 1);
-make_tile(24, 6, sf::Color::White, 1);
-make_tile(24, 7, sf::Color::White, 1);
-make_tile(24, 8, sf::Color::White, 1);
-make_tile(24, 9, sf::Color::White, 1);
+make_tile_extend(24, 4, 24, 14, sf::Color::White, 1);
 make_tile(3, 0, sf::Color::White, 1);
 make_tile(3, 18, sf::Color::White, 1);
 make_tile(4, 0, sf::Color::White, 1);
@@ -164,4 +144,6 @@ make_tile(8, 0, sf::Color::White, 1);
 make_tile(8, 18, sf::Color::White, 1);
 make_tile(9, 0, sf::Color::White, 1);
 make_tile(9, 18, sf::Color::White, 1);
+    make_tile(15, 15, tex_bound, 2, 4);
+    spawn_player(win.getSize().x/2, win.getSize().y/2);
 }
