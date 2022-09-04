@@ -54,7 +54,7 @@ private:
         sf::Vector2i editilepos;
         std::vector<sf::Vector2i> editbox;
         void editor_print();
-        bool editor_playing;
+        bool editor_playing, editor_printed=false;
         void debug_player(); void debug_input();
 
 

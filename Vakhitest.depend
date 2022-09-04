@@ -58,16 +58,16 @@
 1662043363 source:/home/dima/CODING/Vakhitest/src/button.cpp
 	"header/game.h"
 
-1662225700 source:/home/dima/CODING/Vakhitest/src/editor.cpp
+1662281467 source:/home/dima/CODING/Vakhitest/src/editor.cpp
 	"header/game.h"
 
-1662225264 source:/home/dima/CODING/Vakhitest/src/player.cpp
+1662226181 source:/home/dima/CODING/Vakhitest/src/player.cpp
 	"header/game.h"
 
 1661627005 /home/dima/CODING/Vakhitest/src/player.h
 	"deps.h"
 
-1662225650 /home/dima/CODING/Vakhitest/src/header/game.h
+1662281828 /home/dima/CODING/Vakhitest/src/header/game.h
 	"deps.h"
 	"print.h"
 	"anim.h"
