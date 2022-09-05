@@ -71,11 +71,49 @@ int print::print_debug(){
     case 3:
         lvlname="do not enter";
         break;
+    case 7:
+        lvlname="Test Door0";
+        break;
     default:
         lvlname="INVALID MAP";
     }
     string_debug=std::to_string(ys)+"> "+lvlname+" <";
     return 0;
+}
+
+void print::makeanm(sf::String text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
+    int xpos, ypos;
+    textname.setString(tx); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
+    switch(MODE){
+    case 0: //LEFT ALIGNED
+        ypos=y;
+        xpos=x;
+        break;
+    case 1: //CENTERED X
+        ypos=y;
+        xpos=x-textname.getLocalBounds().width/2;
+        break;
+    case 2://CENTERED X Y
+        ypos=y-textname.getLocalBounds().height/2;
+        xpos=x-textname.getLocalBounds().width/2;
+        break;
+    case 3://CENTERED Y
+        ypos=y-textname.getLocalBounds().height/2;
+        xpos=x;
+        break;
+    }
+    textname.setPosition(sf::Vector2f(xpos, ypos));
+    if(clock.getElapsedTime().asMilliseconds()==0) clock.restart();
+    if(textnm!=text.getSize()) { if(clock.getElapsedTime().asMilliseconds()>ms){
+        clock.restart();
+        cout<<textnm<<endl;
+        tx=tx+text[textnm];
+        textnm++;
+    }
+    } else {
+        tx="";
+        textnm=0;
+    }
 }
 
 void print::slep(int milliseconds, int mode){

@@ -7,7 +7,9 @@ game gam;
 std::string winame="VAKHITEST5";
 
 int main() {
+#ifdef devel
 cout << " - CREATING " << winame << endl;
+#endif // devel
 	gam.win.create(sf::VideoMode(800,600),winame, sf::Style::Default);
 	gam.win.setFramerateLimit(60);
 	cout << " - Welcome to " << winame << endl;
@@ -21,7 +23,7 @@ cout << " - CREATING " << winame << endl;
 	        if(gam.eve.type == sf::Event::LostFocus) focus = false;
         }
         if(focus) {
-            //gam.update();
+//            gam.update();
             gam.render();
         }
 	}

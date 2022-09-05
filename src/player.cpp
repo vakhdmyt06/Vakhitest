@@ -1,6 +1,8 @@
 #include "header/game.h"
 void game::room_init(){
+#ifdef devel
     cout<<"Room: "<<menum<<endl;
+#endif // devel
     load_textures();
     plboxdef();
     room_entries.clear();
@@ -17,8 +19,11 @@ void game::room_set(){
         if(RoomMaxUp>hitboxobj.getPosition().y) RoomMaxUp=hitboxobj.getPosition().y;
         objcount++;
     }
+#ifdef devel
+    cout<<"Entrance Number: "<<room_entrynum<<endl;
     cout<<"Left: "<<RoomMaxLeft<<", Right:"<<RoomMaxRight<<", Up: "<<RoomMaxUp<<", Down:" <<RoomMaxDown<<endl;
-    cout<<objcount<<" objects with collision"<<room_entrynum<<endl;
+    cout<<objcount<<" objects with collision"<<endl;
+#endif // devel
     plxpos=room_entries[room_entrynum].x, plypos=room_entries[room_entrynum].y;
     meninit=0;
 }

@@ -25,7 +25,7 @@ private:
         void buttonact(int acttype, int menunumber);
     public:
         enum menus{ debug=0, title, editorshot, edit} menunum;
-        int menum=menunum;
+        int menum=3;
         //collision chara;
 
     private: //menu defines
@@ -37,10 +37,12 @@ private:
         void menu_boredom();
         void menu_testdoor();
         print text_print;
+        print text_anm;
         print debgsel;
 //        print editorshout;
         //box testbox;
         void printxt(string text, int x, int y, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
+        void printanm(string text, int x, int y, int ms, int charsize=40, int MODE=0, sf::Color chrcol=sf::Color::White);
 
     public: //button
         void buttonmk(int x, int y, string text0, sf::Color colfill=sf::Color(100,100,100,255), int offsetX=10, int offsetY=10, int charsize=40, sf::Color charcol=sf::Color::Black, sf::Color coloutline=sf::Color::White, int outlinesize=1, sf::Color colfillpress=sf::Color(200,200,200,255), int offsetXpress=3, int offsetYpress=3, unsigned int msPress=50, action type=NOTHING, int menu_number=0, sf::Keyboard::Key key=sf::Keyboard::Unknown);

@@ -24,13 +24,13 @@ void game::menutable(){
 #ifdef _editor
         editor();
 #else
-        printxt("editor wasnt included ):", win.getSize().x/2, 20, 2, 50, sf::Color::Red);
+        printxt("EDITOR\nis only included in the Debug-Build (;", win.getSize().x/2, 20, 2, 50, sf::Color::Red);
 #endif
 
 //        editorsplash();
         break;
     case 3:
-        printxt("YOU ARE AN IDIOT", win.getSize().x/2, win.getSize().y/2-50, 2, 100, sf::Color::Green);
+        printanm("YOU ARE AN IDIOT",  win.getSize().x/2, win.getSize().y/2-50, 100, 100, 2, sf::Color::Green);
 //        editor();
         break;
     }
@@ -153,7 +153,6 @@ make_tile(9, 18, sf::Color::White, 1);
 }
 
 void game::menu_testdoor(){
-    cout<<room_entrynum<<endl;
     room_setentry(70,-26,1);
 make_tile_extend(0, 4, 0, 14, sf::Color::White, 1);
 make_tile(1, 15, sf::Color::White, 1);

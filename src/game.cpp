@@ -16,6 +16,10 @@ void game::init(){
 }
 void game::update(){
 //    if(devel) editormain();
+    //ONLY USED FOR DEBUG ENABLING lol  nvm
+//    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+//        #define devel
+//    }
 
 }
 void game::render(){
@@ -29,6 +33,11 @@ void game::printxt(string text, int x, int y, int MODE, int charsize, sf::Color 
     text_print.make(text, x, y, MODE, charsize, chrcol);
     win.draw(text_print.textname);
 }
+void game::printanm(string text, int x, int y, int ms, int charsize, int MODE, sf::Color chrcol){
+    text_anm.makeanm(text, x, y, ms, charsize, MODE, chrcol);
+    win.draw(text_anm.textname);
+}
+
 string game::str(int &input){
     return std::to_string(input);
 }
