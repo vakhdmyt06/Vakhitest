@@ -73,7 +73,7 @@
 	"anim.h"
 	"npc.h"
 
-1662384556 /home/dima/CODING/Vakhitest/src/header/deps.h
+1662398376 /home/dima/CODING/Vakhitest/src/header/deps.h
 	<SFML/Graphics.hpp>
 	<string>
 	<iostream>
@@ -130,6 +130,6 @@
 1662397461 /home/dima/CODING/Vakhitest/src/header/npc.h
 	"deps.h"
 
-1662397391 source:/home/dima/CODING/Vakhitest/src/npc.cpp
-	"npc.h"
+1662398302 source:/home/dima/CODING/Vakhitest/src/npc.cpp
+	"header/npc.h"
 

@@ -84,7 +84,7 @@ void game::editorsplash(){
 */
 void game::menu_instructions(){
     printxt("INSTRUCTIONS", win.getSize().x/2, 20, 2, 50, sf::Color::Blue);
-    printanm("Arrow Keys(Up Down Left Right) = Move Around$#01\nBackspace = Open Debug Map Select$#01\nESC = Quit Game$#06\n\nGot it?\n$#06You know whats Backspace for...\n$#05if your afk turn off the Program atleast.$#03\nit MAY use alot ram and energy$#04\nDont forget to wash your Hands!$#06\nCmon you must be rich or something$#06\n\nOh no..$#02 i flooded the instructions.....$#01bye..", win.getSize().x/2, win.getSize().y/2, 34, 35, 2);
+    printanm("Arrow Keys(Up Down Left Right) = Move Around$#01\nBackspace = Open Debug Map Select$#01\nESC = Quit Game$#06\n\nGot it?\n$#06You know whats Backspace for...\n$#05if your afk turn off the Program atleast.$#03\nit MAY use alot ram and energy$#04\nDont forget to wash your Hands!$#06\nCmon you must be rich or something$#06\n\nOh no..$#01 i flooded the instructions.....$#01\nbye..", win.getSize().x/2, win.getSize().y/2, 34, 35, 2);
 }
 
 void game::menu_testgrid(){

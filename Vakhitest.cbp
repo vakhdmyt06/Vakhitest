@@ -56,15 +56,16 @@
 		<Unit filename="src/box.cpp" />
 		<Unit filename="src/button.cpp" />
 		<Unit filename="src/editor.cpp" />
-		<Unit filename="src/fade.cpp" />
 		<Unit filename="src/game.cpp" />
 		<Unit filename="src/header/anim.h" />
 		<Unit filename="src/header/deps.h" />
 		<Unit filename="src/header/game.h" />
+		<Unit filename="src/header/npc.h" />
 		<Unit filename="src/header/print.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/menu.cpp" />
 		<Unit filename="src/newcollision.cpp" />
+		<Unit filename="src/npc.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/print.cpp" />
 		<Unit filename="src/room_entry.cpp" />
