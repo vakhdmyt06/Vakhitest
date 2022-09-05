@@ -9,5 +9,5 @@ Windows:	win/Vakhitest.7z<br />
 Linux:		bin/Vakhitest.7z<br />
 <br />
 <br />
-its not inspired by undertale at	 all	yeah  <br />
+its not inspired by undertale at	 all...  	yeah  <br />
 i dont know what the game should be about but atleast i got a engine now......................................... yey
