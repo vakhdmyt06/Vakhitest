@@ -30,7 +30,7 @@ void game::menutable(){
 //        editorsplash();
         break;
     case 3:
-        printanm("YOU ARE AN IDIOT",  win.getSize().x/2, win.getSize().y/2-50, 100, 100, 2, sf::Color::Green);
+        printanm("VAKHITEST 5\nby Dmytro Vakhitov",  win.getSize().x/2, win.getSize().y/2-50, 100, 100, 2, sf::Color::Green);
 //        editor();
         break;
     }
@@ -56,8 +56,8 @@ void game::menu_debug(){
     /*print("Hello World", 1, 0, 1, 40, sf::Color::White);
     print("y: "+std::to_string(y), 5, 30, 0, 30, sf::Color::White);
     mkbutton(win.getSize().x/2, win.getSize().y/2+100, "PRESS", sf::Color::Red, 90, 50, 40, sf::Color::Green, sf::Color::Blue, 40, 2);*/
-    printxt("VAKHITEST 5\nDmytro Vakhitov", win.getSize().x/2, 4, 2, 50);
-    printxt("INFO\nPress UP | DOWN Arrows to change map\nPress Enter to enter map\nPress Backspace or -DEBUG to go back", win.getSize().x/2, 130, 2, 33);
+    printxt("Debug Map Select", win.getSize().x/2, 20, 2, 70);
+    printxt("INFO\nPress UP | DOWN Arrows to change map\nPress Enter to enter map\nPress Backspace or -DEBUG to go back", win.getSize().x/2, 120, 2, 30);
     menum=debgsel.make("Hello World", 0, 0, 1, 40); win.draw(debgsel.textname);
     buttonmk(win.getSize().x/2, win.getSize().y-200, "INSTRUCTIONS", sf::Color(100,100,100,255), 10, 10, 100, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),10,10, 10, MENU, 5, sf::Keyboard::H);
 }
@@ -83,7 +83,7 @@ void game::editorsplash(){
 */
 void game::menu_instructions(){
     printxt("INSTRUCTIONS", win.getSize().x/2, 20, 2, 50, sf::Color::Blue);
-    printxt("Arrow Keys(Up Down Left Right) = Move Around\nBackspace = Open Debug Map Select\nESC = Quit Game", win.getSize().x/2, win.getSize().y/2, 3, 33);
+    printanm("Arrow Keys(Up Down Left Right) = Move Around\nBackspace = Open Debug Map Select\nESC = Quit Game", win.getSize().x/2, win.getSize().y/2, 60, 35, 2);
 }
 
 void game::menu_testgrid(){

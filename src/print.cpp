@@ -83,6 +83,13 @@ int print::print_debug(){
 
 void print::makeanm(sf::String text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
     int xpos, ypos;
+    if(txdone==1){
+        if(tx!=text){
+            tx="";
+            textnm=0;
+            txdone=0;
+    }
+    }
     textname.setString(tx); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
     switch(MODE){
     case 0: //LEFT ALIGNED
@@ -104,16 +111,13 @@ void print::makeanm(sf::String text, int x, int y, int charsize, int ms, int MOD
     }
     textname.setPosition(sf::Vector2f(xpos, ypos));
     if(clock.getElapsedTime().asMilliseconds()==0) clock.restart();
-    if(textnm!=text.getSize()) { if(clock.getElapsedTime().asMilliseconds()>ms){
+    if(textnm!=text.getSize()&&!txdone) { if(clock.getElapsedTime().asMilliseconds()>ms){
         clock.restart();
         cout<<textnm<<endl;
         tx=tx+text[textnm];
         textnm++;
     }
-    } else {
-        tx="";
-        textnm=0;
-    }
+    } else txdone=1;
 }
 
 void print::slep(int milliseconds, int mode){

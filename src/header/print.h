@@ -16,6 +16,7 @@ class print
         void makeanm(sf::String text, int x, int y, int ms, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
         unsigned int textnm=0;
         sf::String tx="";
+        bool txdone=0;
         unsigned int menuum=0;
     private:
         unsigned int ys=6;

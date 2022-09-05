@@ -34,7 +34,7 @@ void game::printxt(string text, int x, int y, int MODE, int charsize, sf::Color 
     win.draw(text_print.textname);
 }
 void game::printanm(string text, int x, int y, int ms, int charsize, int MODE, sf::Color chrcol){
-    text_anm.makeanm(text, x, y, ms, charsize, MODE, chrcol);
+    text_anm.makeanm(text, x, y, charsize, ms, MODE, chrcol);
     win.draw(text_anm.textname);
 }
 
