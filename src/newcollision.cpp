@@ -23,6 +23,7 @@ void game::detector(int collbehav, int id, int entry){
 
 void game::playercollision(){
     for(auto &hitboxobj : hbobjs){
+//        win.draw(hitboxobj);
         hbplayer = plbox.getGlobalBounds();
         hbobj = hitboxobj.getGlobalBounds();
         nextPos = hbplayer;
@@ -32,31 +33,31 @@ void game::playercollision(){
         if(hbobj.intersects(nextPos)){
             if(nextPos.top < hbobj.top //TOP
             && hbplayer.top + hbplayer.height < hbobj.top + hbobj.height
-            && hbplayer.left < hbobj.left + hbobj.width
-            && hbplayer.left + hbplayer.width > hbobj.left){
+            && hbplayer.left < hbobj.left + hbobj.width-5
+            && hbplayer.left + hbplayer.width-5 > hbobj.left){
                 yvel=0.f;
                 plbox.setPosition(hbplayer.left, hbobj.top - hbplayer.height);
             }
             else if(nextPos.top > hbobj.top //BOTTOM
             && hbplayer.top + hbplayer.height > hbobj.top + hbobj.height
-            && hbplayer.left < hbobj.left + hbobj.width
-            && hbplayer.left + hbplayer.width > hbobj.left){
+            && hbplayer.left < hbobj.left + hbobj.width-5
+            && hbplayer.left + hbplayer.width-5 > hbobj.left){
                 yvel=0.f;
                 plbox.setPosition(hbplayer.left, hbobj.top + hbobj.height);
             }
             if(nextPos.left < hbobj.left
             && hbplayer.left + hbplayer.width < hbobj.left + hbobj.width
             && hbplayer.top < hbobj.top + hbobj.height-5
-            && hbplayer.top + hbplayer.height > hbobj.top+5){
+            && hbplayer.top + hbplayer.height-5 > hbobj.top){
                 xvel=0.f;
-                plbox.setPosition(hbobj.left - hbplayer.width, hbplayer.top);
+                plbox.setPosition(hbobj.left - hbplayer.width, hbplayer.top+yvel);
             }
             else if(nextPos.left > hbobj.left
             && hbplayer.left + hbplayer.width > hbobj.left + hbobj.width
             && hbplayer.top < hbobj.top + hbobj.height-5
-            && hbplayer.top + hbplayer.height > hbobj.top+5){
+            && hbplayer.top + hbplayer.height-5 > hbobj.top){
                 xvel=0.f;
-                plbox.setPosition(hbobj.left + hbobj.width, hbplayer.top);
+                plbox.setPosition(hbobj.left + hbobj.width, hbplayer.top+yvel);
             }
         }
     }/*

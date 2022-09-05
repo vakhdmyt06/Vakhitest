@@ -31,6 +31,7 @@ void game::menutable(){
         break;
     case 3: //äöü§°–\n…·µ€
         printanm("VAKHITEST 5$#02\nby\nMODDIMATION",  win.getSize().x/2, win.getSize().y/2-50, 100, 100, 2, sf::Color::Green);
+        printxt("Press Enter | Backspace",  win.getSize().x/2, win.getSize().y/2+200, 2, 40, sf::Color::White);
 //        editor();
         break;
     }
@@ -41,7 +42,6 @@ void game::menutable(){
 }
 
 void game::menu_global(){
-    testguy.spawn(menum);
     buttonmk(win.getSize().x/2, win.getSize().y-50, "MAP SELECT", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
 //    if(!debugcam){if(plxpos<RoomMaxLeft+win.getSize().x/2) boxposx=0.f;
 //    else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else
@@ -96,6 +96,7 @@ void game::menu_testgrid(){
     spawn_player(10, 300);
 }
 void game::menu_boredom(){
+    printxt("walk to the right", win.getSize().x/2, 200, 2, 50, sf::Color::Blue);
     room_setentry(690,-26,1);
 make_tile_extend(0, 4, 0, 14, sf::Color::White, 1);
 make_tile(1, 15, sf::Color::White, 1);
@@ -154,6 +155,7 @@ make_tile(9, 18, sf::Color::White, 1);
 }
 
 void game::menu_testdoor(){
+    printxt("walk to the left", win.getSize().x/2, 200, 2, 50, sf::Color::Blue);
     room_setentry(70,-26,1);
 make_tile_extend(0, 4, 0, 14, sf::Color::White, 1);
 make_tile(1, 15, sf::Color::White, 1);
@@ -207,6 +209,8 @@ make_tile(8, 0, sf::Color::White, 1);
 make_tile(8, 18, sf::Color::White, 1);
 make_tile(9, 0, sf::Color::White, 1);
 make_tile(9, 18, sf::Color::White, 1);
+    testguy.spawn("testguy", 600, 300, 1, 1, 0, 0, boxposx, boxposy, true, hbobjs);
+    win.draw(testguy.npcmain);
     make_tile(0, 9, tex_bound, 2, 6, 1);
     spawn_player(0, 0);
 }
