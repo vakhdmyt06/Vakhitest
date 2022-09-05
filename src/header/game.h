@@ -4,6 +4,7 @@
 #define GAME_H
 #include "print.h"
 #include "anim.h"
+#include "npc.h"
 class game{
 private:
     public:
@@ -142,6 +143,9 @@ private:
         sf::Texture tex_playerload;
         sf::Texture tex_playerconfuse;
         sf::Texture tex_bound;
+
+        //NPC DATA
+        npc testguy;
 };
 #endif // GAME_H
 

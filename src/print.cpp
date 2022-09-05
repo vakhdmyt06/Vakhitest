@@ -83,11 +83,12 @@ int print::print_debug(){
 
 void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
     int xpos, ypos;
-    if(txdone==1){
+    if(txdone==1||txold!=text){
         if(txold!=text){
             tx="";
             textnm=0;
             txdone=0;
+            modms=0;
     }
     }
     textname.setString(tx); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
@@ -141,6 +142,9 @@ void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, s
                         break;
                     case 5: //wait 3 seconds
                         modms=5000-ms;
+                        break;
+                    case 6: //wait 10 seconds
+                        modms=10000-ms;
                         break;
                 }
                 break;

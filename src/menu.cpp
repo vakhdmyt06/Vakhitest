@@ -41,6 +41,7 @@ void game::menutable(){
 }
 
 void game::menu_global(){
+    testguy.spawn(menum);
     buttonmk(win.getSize().x/2, win.getSize().y-50, "MAP SELECT", sf::Color(100,100,100,255), 10, 10, 40, sf::Color::Blue, sf::Color::White, 1, sf::Color(111,111,111,255),2,2, 0, MENU,0,sf::Keyboard::Backspace);
 //    if(!debugcam){if(plxpos<RoomMaxLeft+win.getSize().x/2) boxposx=0.f;
 //    else if(plxpos>RoomMaxRight-win.getSize().x/3) boxposx=boxposx; else
@@ -83,7 +84,7 @@ void game::editorsplash(){
 */
 void game::menu_instructions(){
     printxt("INSTRUCTIONS", win.getSize().x/2, 20, 2, 50, sf::Color::Blue);
-    printanm("Arrow Keys(Up Down Left Right) = Move Around\nBackspace = Open Debug Map Select\nESC = Quit Game", win.getSize().x/2, win.getSize().y/2, 60, 35, 2);
+    printanm("Arrow Keys(Up Down Left Right) = Move Around$#01\nBackspace = Open Debug Map Select$#01\nESC = Quit Game$#06\n\nGot it?\n$#06You know whats Backspace for...\n$#05if your afk turn off the Program atleast.$#03\nit MAY use alot ram and energy$#04\nDont forget to wash your Hands!$#06\nCmon you must be rich or something$#06\n\nOh no..$#02 i flooded the instructions.....$#01bye..", win.getSize().x/2, win.getSize().y/2, 34, 35, 2);
 }
 
 void game::menu_testgrid(){

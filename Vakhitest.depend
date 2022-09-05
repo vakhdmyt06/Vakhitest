@@ -31,10 +31,10 @@
 	"header/game.h"
 	"header/deps.h"
 
-1662380564 source:/home/dima/CODING/Vakhitest/src/menu.cpp
+1662397761 source:/home/dima/CODING/Vakhitest/src/menu.cpp
 	"header/game.h"
 
-1662382601 source:/home/dima/CODING/Vakhitest/src/print.cpp
+1662397821 source:/home/dima/CODING/Vakhitest/src/print.cpp
 	"header/print.h"
 	"header/game.h"
 
@@ -67,12 +67,13 @@
 1661627005 /home/dima/CODING/Vakhitest/src/player.h
 	"deps.h"
 
-1662376465 /home/dima/CODING/Vakhitest/src/header/game.h
+1662397400 /home/dima/CODING/Vakhitest/src/header/game.h
 	"deps.h"
 	"print.h"
 	"anim.h"
+	"npc.h"
 
-1662382700 /home/dima/CODING/Vakhitest/src/header/deps.h
+1662384556 /home/dima/CODING/Vakhitest/src/header/deps.h
 	<SFML/Graphics.hpp>
 	<string>
 	<iostream>
@@ -125,4 +126,10 @@
 
 1662303134 source:/home/dima/CODING/Vakhitest/src/room_entry.cpp
 	"header/game.h"
+
+1662397461 /home/dima/CODING/Vakhitest/src/header/npc.h
+	"deps.h"
+
+1662397391 source:/home/dima/CODING/Vakhitest/src/npc.cpp
+	"npc.h"
 
