@@ -8,12 +8,13 @@ class print
     public:
         print();
         virtual ~print();
+        typedef std::basic_string<unsigned char> ustring;
         string text;
         int x, y, MODE, charsize;
         sf::Text textname;
         sf::Font textfont;
         int make(string text, int x, int y, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
-        void makeanm(sf::String text, int x, int y, int ms, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
+        void makeanm(string text, int x, int y, int ms, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
         unsigned int textnm=0;
         sf::String tx="";
         bool txdone=0;

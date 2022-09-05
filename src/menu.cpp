@@ -24,13 +24,13 @@ void game::menutable(){
 #ifdef _editor
         editor();
 #else
-        printxt("EDITOR\nis only included in the Debug-Build (;", win.getSize().x/2, 20, 2, 50, sf::Color::Red);
+        printanm("The EDITOR\nis only included in the Debug-Build (;", win.getSize().x/2, 20, 200, 50, 2, sf::Color::Red);
 #endif
 
 //        editorsplash();
         break;
-    case 3:
-        printanm("VAKHITEST 5\nby Dmytro Vakhitov",  win.getSize().x/2, win.getSize().y/2-50, 100, 100, 2, sf::Color::Green);
+    case 3: //äöü§°–\n…·µ€
+        printanm("§°–\n…·µ€",  win.getSize().x/2, win.getSize().y/2-50, 1000, 100, 2, sf::Color::Green);
 //        editor();
         break;
     }

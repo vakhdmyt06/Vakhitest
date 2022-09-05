@@ -81,7 +81,7 @@ int print::print_debug(){
     return 0;
 }
 
-void print::makeanm(sf::String text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
+void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
     int xpos, ypos;
     if(txdone==1){
         if(tx!=text){
@@ -111,12 +111,14 @@ void print::makeanm(sf::String text, int x, int y, int charsize, int ms, int MOD
     }
     textname.setPosition(sf::Vector2f(xpos, ypos));
     if(clock.getElapsedTime().asMilliseconds()==0) clock.restart();
-    if(textnm!=text.getSize()&&!txdone) { if(clock.getElapsedTime().asMilliseconds()>ms){
+    if(textnm!=text.length()&&!txdone) { if(clock.getElapsedTime().asMilliseconds()>ms){
         clock.restart();
-        cout<<textnm<<endl;
+        if(text[textnm]==-92) tx="1";
+        int textc=text[textnm];
+        cout<<textc<<endl;
         tx=tx+text[textnm];
         textnm++;
-    }
+    }//äöü§°–\n…·µ€
     } else txdone=1;
 }
 
