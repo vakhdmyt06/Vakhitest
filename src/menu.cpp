@@ -24,7 +24,7 @@ void game::menutable(){
 #ifdef _editor
         editor();
 #else
-        printanm("The EDITOR\nis only included in the Debug-Build (;", win.getSize().x/2, 20, 200, 50, 2, sf::Color::Red);
+        printanm("The EDITOR$#02\nis only included in the$#01\nDebug-Build (;", win.getSize().x/2, 100, 100, 60, 2, sf::Color::Red);
 #endif
 
 //        editorsplash();
