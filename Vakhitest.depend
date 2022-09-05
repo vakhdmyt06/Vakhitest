@@ -21,7 +21,7 @@
 1660908132 source:/home/dima/CODING/Vakhitest/text.cpp
 	"text.h"
 
-1662374201 source:/home/dima/CODING/Vakhitest/src/game.cpp
+1662376466 source:/home/dima/CODING/Vakhitest/src/game.cpp
 	"header/game.h"
 
 1660940230 /home/dima/CODING/Vakhitest/menu.h
@@ -31,10 +31,10 @@
 	"header/game.h"
 	"header/deps.h"
 
-1662374933 source:/home/dima/CODING/Vakhitest/src/menu.cpp
+1662380564 source:/home/dima/CODING/Vakhitest/src/menu.cpp
 	"header/game.h"
 
-1662374950 source:/home/dima/CODING/Vakhitest/src/print.cpp
+1662381567 source:/home/dima/CODING/Vakhitest/src/print.cpp
 	"header/print.h"
 	"header/game.h"
 
@@ -67,12 +67,12 @@
 1661627005 /home/dima/CODING/Vakhitest/src/player.h
 	"deps.h"
 
-1662374194 /home/dima/CODING/Vakhitest/src/header/game.h
+1662376465 /home/dima/CODING/Vakhitest/src/header/game.h
 	"deps.h"
 	"print.h"
 	"anim.h"
 
-1662371698 /home/dima/CODING/Vakhitest/src/header/deps.h
+1662381591 /home/dima/CODING/Vakhitest/src/header/deps.h
 	<SFML/Graphics.hpp>
 	<string>
 	<iostream>
@@ -83,7 +83,7 @@
 	"print.h"
 	"collision.h"
 
-1662374248 /home/dima/CODING/Vakhitest/src/header/print.h
+1662381487 /home/dima/CODING/Vakhitest/src/header/print.h
 	"deps.h"
 
 1661852452 /home/dima/CODING/Vakhitest/src/header/box.h

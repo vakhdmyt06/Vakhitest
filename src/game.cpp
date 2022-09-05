@@ -37,7 +37,7 @@ void game::printanm(string text, int x, int y, int ms, int charsize, int MODE, s
     text_anm.makeanm(text, x, y, charsize, ms, MODE, chrcol);
     win.draw(text_anm.textname);
 }
-
+//§°–…·µ€
 string game::str(int &input){
     return std::to_string(input);
 }

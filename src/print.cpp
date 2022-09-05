@@ -84,7 +84,7 @@ int print::print_debug(){
 void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
     int xpos, ypos;
     if(txdone==1){
-        if(tx!=text){
+        if(txold!=text){
             tx="";
             textnm=0;
             txdone=0;
@@ -111,15 +111,53 @@ void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, s
     }
     textname.setPosition(sf::Vector2f(xpos, ypos));
     if(clock.getElapsedTime().asMilliseconds()==0) clock.restart();
-    if(textnm!=text.length()&&!txdone) { if(clock.getElapsedTime().asMilliseconds()>ms){
+    if(textnm!=text.length()&&!txdone) { if(clock.getElapsedTime().asMilliseconds()>ms+modms||txcoderun){
+        txcoderun=0;
         clock.restart();
-        if(text[textnm]==-92) tx="1";
-        int textc=text[textnm];
-        cout<<textc<<endl;
-        tx=tx+text[textnm];
-        textnm++;
-    }//äöü§°–\n…·µ€
+        cout<<textnm<<" "<<text.length()<<endl;
+        if(text[textnm]=='$'&&text[textnm+1]=='#')
+        {
+            int cd0=text[textnm+2]-'0';
+            int cd1=text[textnm+3]-'0';
+            switch(cd0){
+            case 0:
+                switch(cd1){
+                    case 0: //normalize
+                        textname.setFont(textfont);
+                        textname.setCharacterSize(charsize);
+                        textname.setFillColor(chrcol);
+                        txcoderun=1;
+                    case 1: //wait 1 second
+                        modms=1000-ms;
+                        break;
+                    case 2: //wait 2 seconds
+                        modms=2000-ms;
+                        break;
+                    case 3: //wait 3 seconds
+                        modms=3000-ms;
+                        break;
+                    case 4: //wait 3 seconds
+                        modms=4000-ms;
+                        break;
+                    case 5: //wait 3 seconds
+                        modms=5000-ms;
+                        break;
+                }
+                break;
+            }
+            textnm+=4;
+            txcodenm++;
+        } else {
+            tx=tx+text[textnm];
+            textnm++;
+            txcoderun=0;
+            {
+                modms=0;
+            }
+        }
+    }
     } else txdone=1;
+    txold=text;
 }
 
 void print::slep(int milliseconds, int mode){

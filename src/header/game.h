@@ -61,7 +61,7 @@ private:
         bool editor_playing, editor_printed=false;
         void debug_player(); void debug_input();
 
-
+//§°–…·µ€
     public: //player
         void spawn_player(int startx, int starty);
         double xvel=0, yvel=0;

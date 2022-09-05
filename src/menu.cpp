@@ -30,7 +30,7 @@ void game::menutable(){
 //        editorsplash();
         break;
     case 3: //äöü§°–\n…·µ€
-        printanm("§°–\n…·µ€",  win.getSize().x/2, win.getSize().y/2-50, 1000, 100, 2, sf::Color::Green);
+        printanm("VAKHITEST 5$#02\nby\nMODDIMATION",  win.getSize().x/2, win.getSize().y/2-50, 100, 100, 2, sf::Color::Green);
 //        editor();
         break;
     }
