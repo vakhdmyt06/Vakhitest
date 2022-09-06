@@ -9,9 +9,10 @@ class message
         message();
         virtual ~message();
         void create(int type, int id, sf::RenderWindow &win);
+        print msgtext;
+        unsigned int msgms=400;
     private:
         sf::RectangleShape msgbox;
-        print msgtext;
         string msgtxt="ERROR";
 };
 

@@ -17,7 +17,7 @@ class print
         void makeanm(string text, int x, int y, int ms, int MODE=0, int charsize=40, sf::Color chrcol=sf::Color::White);
         unsigned int textnm=0;
         sf::String tx="";
-        bool txcoderun=false, txdone=0;
+        bool txcoderun=false, txdone=1;
         unsigned int txcodenm=0;
         string txold=""; int modms=0;
         unsigned int menuum=0;
@@ -29,6 +29,7 @@ class print
         sf::Clock clock;
         int timevar=0;
         string lvlname;
+        int msgcount=0;
 
 };
 #endif // PRINT_H

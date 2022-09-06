@@ -84,15 +84,6 @@ int print::print_debug(){
 
 void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, sf::Color chrcol){
     int xpos, ypos;
-    if(txdone==1||txold!=text){
-        if(txold!=text){
-            tx="";
-            textnm=0;
-            txdone=0;
-            modms=0;
-    }
-    }
-    textname.setString(tx); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
     switch(MODE){
     case 0: //LEFT ALIGNED
         ypos=y;
@@ -110,13 +101,34 @@ void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, s
         ypos=y-textname.getLocalBounds().height/2;
         xpos=x;
         break;
+    case 4://MESSAGE BOX LEFT ALIGNED
+        xpos=x; ypos=y;
+        text="* "+text;
+
     }
+    if(txdone==1||txold!=text){
+        if(txold!=text){
+            tx="";
+            textnm=0;
+            txdone=0;
+            modms=0;
+    }
+    }
+    textname.setString(tx); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
     textname.setPosition(sf::Vector2f(xpos, ypos));
     if(clock.getElapsedTime().asMilliseconds()==0) clock.restart();
     if(textnm!=text.length()&&!txdone) { if(clock.getElapsedTime().asMilliseconds()>ms+modms||txcoderun){
         txcoderun=0;
         clock.restart();
-        cout<<textnm<<" "<<text.length()<<endl;
+        if(MODE==4){
+            if(msgcount>=44){ //if message box line is 44 make a new line
+                msgcount=0;
+                tx+="\n";
+            }
+            if(text[textnm]=='\n') msgcount=0;
+            if(text[textnm]==' '&&msgcount==1&&textnm!=1) textnm++;
+            msgcount++;
+        }
         if(text[textnm]=='$'&&text[textnm+1]=='#')
         {
             int cd0=text[textnm+2]-'0';
@@ -158,6 +170,14 @@ void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, s
                         break;
                 }
                 break;
+            case 1:
+                switch(cd1){
+                    case 0:
+                        modms=900;
+                        msgcount=0;
+                        tx+="\n* ";
+                        break;
+                }
             }
             textnm+=4;
             txcodenm++;

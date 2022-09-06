@@ -24,6 +24,7 @@ class npc
         sf::FloatRect plbound, npcbound;
         const unsigned int bound=20;
         message msg;
+        bool npcmsghappening=0;
 };
 
 #endif // NPC_H

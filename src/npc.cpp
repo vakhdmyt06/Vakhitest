@@ -29,7 +29,8 @@ void npc::behaviour(int type, int id, sf::RenderWindow &win){
         case 1: //testguy
             switch(id){
                 case 1: //talkable, test anim
-                    if(collides()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) msg.create(2,0,win);
+                    if(collides()&&sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) npcmsghappening=1;
+                    if(npcmsghappening) { msg.create(2,0,win); if(sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) if(msg.msgtext.txdone){npcmsghappening=0;}else{msg.msgms=0;} }
                     npcanim.npc(npcmain, 1);
                     break;
             }
