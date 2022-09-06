@@ -3,6 +3,7 @@
 anim::anim(int anmtype)
 {
     this->anmtype=anmtype;
+    clock.restart();
     switch(anmtype)
     {
         case 1:
@@ -18,6 +19,11 @@ anim::anim(int anmtype)
             pldw0.loadFromFile("assets/sprite/playersheet.png", sf::IntRect(2, 30, 18, 30));
             pldw1.loadFromFile("assets/sprite/playersheet.png", sf::IntRect(22, 30, 18, 30));
             pldw2.loadFromFile("assets/sprite/playersheet.png", sf::IntRect(42, 30, 18, 30));
+            break;
+        case 2:
+            npctest0.loadFromFile("assets/sprite/grass.png");
+            npctest1.loadFromFile("assets/sprite/32bound.png");
+            break;
     }
 }
 
@@ -58,5 +64,37 @@ void anim::player(sf::Sprite& spr, int id, double speed){
             if(timevar>=0.3*speed) spr.setTexture(pluw0);
             if(timevar>=0.4*speed) spr.setTexture(pluw2);
             break;
+        case 5:
+            if(timevar>=0.1*speed) spr.setTexture(pluw0);
+            break;
+        case 6:
+            if(timevar>=0.1*speed) spr.setTexture(pldw0);
+            break;
+        case 7:
+            if(timevar>=0.1*speed) spr.setTexture(pllw0);
+            break;
+        case 8:
+            if(timevar>=0.1*speed) spr.setTexture(plrw0);
+            break;
+    }
+}
+void anim::npc(sf::Sprite& spr, int id){
+    //MESSAGE TESTING
+    //texture menu :3
+    //add more anmtext features
+    timevar = clock.getElapsedTime().asSeconds();
+    switch(anmtype){
+        case 1:
+            cout<<"NPC CANNOT BE ANIMATION ID 1(player)"<<endl;
+            break;
+        case 2:
+            switch(id){
+            case 1:
+                if(timevar>0.2) clock.restart();
+                if(timevar>=0.1) spr.setTexture(npctest0);
+                if(timevar>=0.2) spr.setTexture(npctest1);
+                break;
+            }
+        break;
     }
 }

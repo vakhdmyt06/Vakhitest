@@ -79,7 +79,7 @@ private:
         print plname;
         bool scrollingX=false, scrollingY=false;
         unsigned int room_entrynum=0;
-
+        enum playerdir{UP=0, DOWN, LEFT, RIGHT}pldir;
         anim anim_plwalk=1;
 /*
     public: //collision

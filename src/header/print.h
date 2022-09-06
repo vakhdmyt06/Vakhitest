@@ -9,7 +9,7 @@ class print
         print();
         virtual ~print();
         typedef std::basic_string<unsigned char> ustring;
-        string text;
+        sf::String text;
         int x, y, MODE, charsize;
         sf::Text textname;
         sf::Font textfont;

@@ -60,10 +60,12 @@
 		<Unit filename="src/header/anim.h" />
 		<Unit filename="src/header/deps.h" />
 		<Unit filename="src/header/game.h" />
+		<Unit filename="src/header/message.h" />
 		<Unit filename="src/header/npc.h" />
 		<Unit filename="src/header/print.h" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/menu.cpp" />
+		<Unit filename="src/message.cpp" />
 		<Unit filename="src/newcollision.cpp" />
 		<Unit filename="src/npc.cpp" />
 		<Unit filename="src/player.cpp" />

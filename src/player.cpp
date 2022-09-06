@@ -53,10 +53,10 @@ void game::debug_input(){
 
 void game::spawn_player(int startx, int starty){
     startX=startx, startY=starty; plxpos+=xvel; plypos+=yvel;//remove startYX
-    #ifdef devel
-    velprint.make("xv:"+std::to_string(xvel)+" yv:"+std::to_string(yvel)+" x:"+std::to_string(plxpos)+" y:"+std::to_string(plypos)+" xobj:"+str(boxposx)+" yobj:"+str(boxposy),3, 6, 0,30);
+//    #ifdef devel
+    velprint.make("xv:"+std::to_string((int)xvel)+" yv:"+std::to_string((int)yvel)+" x:"+std::to_string((int)plxpos)+" y:"+std::to_string((int)plypos)+" xobj:"+str(boxposx)+" yobj:"+str(boxposy)+" dir:"+std::to_string(pldir),3, 6, 0,30);
     win.draw(velprint.textname);
-    #endif
+//    #endif
     input();
     playercollision();
     win.draw(plbox);
@@ -124,10 +124,14 @@ void game::input(){
 //    }
 //    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)&&sf::Keyboard::isKeyPressed(sf::Keyboard::Down)||sf::Keyboard::isKeyPressed(sf::Keyboard::Left)&&sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) plbox.setTexture(tex_playerconfuse);
 //    else {
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) anim_plwalk.player(plbox, 2, speeds);
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) anim_plwalk.player(plbox, 1, speeds);
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) anim_plwalk.player(plbox, 3, speeds);
-        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) anim_plwalk.player(plbox, 4, speeds);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) { anim_plwalk.player(plbox, 2, speeds); pldir=LEFT; }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) { anim_plwalk.player(plbox, 1, speeds); pldir=RIGHT; }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) { anim_plwalk.player(plbox, 3, speeds); pldir=UP; }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) { anim_plwalk.player(plbox, 4, speeds); pldir=DOWN; }
+        else if(pldir==LEFT) anim_plwalk.player(plbox, 7, speeds);
+        else if(pldir==RIGHT) anim_plwalk.player(plbox, 8, speeds);
+        else if(pldir==UP) anim_plwalk.player(plbox, 6, speeds);
+        else if(pldir==DOWN) anim_plwalk.player(plbox, 5, speeds);
 //    }
 
 }

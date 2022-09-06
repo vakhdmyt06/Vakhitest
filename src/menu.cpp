@@ -209,7 +209,7 @@ make_tile(8, 0, sf::Color::White, 1);
 make_tile(8, 18, sf::Color::White, 1);
 make_tile(9, 0, sf::Color::White, 1);
 make_tile(9, 18, sf::Color::White, 1);
-    testguy.spawn("testguy", 600, 300, 1, 1, 0, 0, boxposx, boxposy, true, hbobjs);
+    testguy.spawn("testguy", 600, 300, 1, 1, 1, 1, boxposx, boxposy, true, hbobjs, plbox.getGlobalBounds(), win);
     win.draw(testguy.npcmain);
     make_tile(0, 9, tex_bound, 2, 6, 1);
     spawn_player(0, 0);

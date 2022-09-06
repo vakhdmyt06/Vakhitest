@@ -13,7 +13,8 @@ print::~print()
 
 int print::make(string text, int x, int y, int MODE, int charsize, sf::Color chrcol){
     int xpos, ypos;
-    textname.setString(text); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
+    this->text=text;
+    textname.setString(this->text); textname.setFont(textfont); textname.setCharacterSize(charsize); textname.setFillColor(chrcol);
     switch(MODE){
     case 0: //LEFT ALIGNED
         ypos=y;
@@ -69,7 +70,7 @@ int print::print_debug(){
         lvlname="Level Maker/\"Editor\"";
         break;
     case 3:
-        lvlname="do not enter";
+        lvlname="SPLASH";
         break;
     case 7:
         lvlname="Test Door0";
@@ -145,6 +146,15 @@ void print::makeanm(string text, int x, int y, int charsize, int ms, int MODE, s
                         break;
                     case 6: //wait 10 seconds
                         modms=10000-ms;
+                        break;
+                    case 7:
+                        modms=250-ms;
+                        break;
+                    case 8:
+                        modms=500-ms;
+                        break;
+                    case 9:
+                        modms=750-ms;
                         break;
                 }
                 break;
